@@ -12,15 +12,20 @@ app.get('/',(req,res)   =>  {
    res.render('home');
  });
 
-app.get('/login',(req,res)   =>  {
-    res.render('login')
+app.get('/admin-login',(req,res)   =>  {
+    res.render('Admin-login')
 });
+app.get('/costumer-login',(req,res)   =>  {
+    res.render('costumer-login')
+});
+app.get('/costumer-reg',(req,res)   =>  {
+    res.render('costumer-reg')
+});
+
 
 app.get('/register',(req,res)   =>  {
     res.render('register')
 });
-
-
 
 app.listen(3000,()=>{console.log('http://localhost:3000/')});
 
