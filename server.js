@@ -20,8 +20,7 @@ app.get('/register',(req,res)   =>  {
     res.render('register')
 });
 
+
+
 app.listen(3000,()=>{console.log('http://localhost:3000/')});
-
-
-
 
