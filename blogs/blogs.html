@@ -7,19 +7,22 @@
  
   <title>Hprcse</title>
   <link href="style.css" type="text/css"rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body class="grey lighten-3">
-  <header>
-    <nav class ="navbar">
-        <ul class="nav__links">
-         
-            <li><button id='button' href="#">Logout</button></li>
-        </ul>
-    </nav>
-</header>
+ 
+<nav>
+  <div class="nav-wrapper">
+    
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+      
 
-<ul class="blogcontent">
+<ul class="collapsible" data-collapsible='accordion'>
  
 </ul>
 
@@ -46,26 +49,12 @@
   const db = firebase.firestore();
 </script>
 <script src="data.js"></script>
-<!--for collapseingg blog content and title-->
-<script>
-   
-  var items = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < items.length; i++) {
-items[i].addEventListener("click", function() {
-  this.classList.toggle("active");
-  var content = this.nextElementSibling;
-  console.log("button pressed");
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-});
-}
-  
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
 </body>
 
 </html>
