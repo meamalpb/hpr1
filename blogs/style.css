@@ -1,0 +1,17 @@
+.navbar{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left:70%;
+      background-color:brown;
+      margin-bottom: 10px;
+  }
+  #button{
+    
+    background-color: rgb(129, 165, 182);
+    border:none;
+    font-weight: bold;
+   }
+   
+  #button:hover{
+    background-color: darkslategray;
+  }
