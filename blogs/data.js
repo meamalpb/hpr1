@@ -29,4 +29,8 @@ db.collection('blogs').get().then(snapshot => {
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
+
+
+    var modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals);
   });
