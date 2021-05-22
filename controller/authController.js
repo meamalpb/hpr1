@@ -2,7 +2,7 @@ const firebase = require('firebase');
 
 //get post function
 module.exports.get_login = (req,res) => {
-    res.render('login')
+    res.render('login');
 }
 
 //post register = creates a new user
