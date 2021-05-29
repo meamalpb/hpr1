@@ -2,6 +2,9 @@ const {Router}  =   require('express');
 const router = Router();
 const blogController=require('../controller/blogController')
 
-router.get('/blogs',blogController.get_blog);
+router.get('/blogs',(req,res)=>{
+    res.render('blog-reg')
+});
+router.post('/blogs',blogController.postblogs);
 
 module.exports = router;
