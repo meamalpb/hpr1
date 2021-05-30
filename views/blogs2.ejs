@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Hprcse</title>
+  <link href="style.css" type="text/css"rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body class="grey lighten-3">
+ 
+<nav>
+  <div class="nav-wrapper">
+   
+    
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li class="create">
+        <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
+      </li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+      
+
+<ul class="collapsible" data-collapsible='accordion'>
+  <% data.forEach(doc => { %>
+
+    <%const blog =doc.data(); %>
+
+    <li><div class="collapsible-header #ef5350 red lighten-1">
+      <%=blog.title%>
+      </div>
+      <div class="collapsible-body  #ef9a9a red lighten-3">
+        <span> <%=blog.title%></span>
+      </div>
+      </li>
+
+  <% }) %>
+ 
+</ul>
+
+ 
+
+
+<div id="modal-create" class="modal">
+  <div class="modal-content">
+    <h4>Create Content</h4><br />
+    <form id="create-form">
+      <div class="input-field">
+        <input type="text" id="title" required>
+        <label for="title"> Title</label>
+      </div>
+      <div class="input-field">
+        <textarea id="content" class="materialize-textarea" required></textarea>
+        <label for="content">Content</label>
+      </div>
+      <button class="btn red darken-2 z-depth-0">Enter</button>
+    </form>
+  </div>
+</div>
+
+
+<script>  document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.collapsible');
+  var instances = M.Collapsible.init(elems);
+
+
+  var modals = document.querySelectorAll('.modal');
+  M.Modal.init(modals);
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+</body>
+
+</html>
