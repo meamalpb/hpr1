@@ -21,7 +21,7 @@ module.exports.post_login = (req,res) => {
   .then((userCredential) => {
     console.log(userCredential);
   })
-    res.redirect('/blog-reg');
+    res.redirect('/blogs2');
 }
 module.exports.get_register = (req,res) => {
 

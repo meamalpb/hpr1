@@ -23,3 +23,10 @@ module.exports.get_blogs2 = (req,res) => {
      });
        
     }
+
+module.exports.edit_blog = (req,res) => {
+    firebase.firestore().collection('blogs').doc(req.params.id).get().then((val)=>{
+        res.render('editBlog',{val});
+        console.log(val.data())
+    })
+}
