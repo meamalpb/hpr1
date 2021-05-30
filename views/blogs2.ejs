@@ -6,8 +6,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <title>Hprcse</title>
-  <link href="style.css" type="text/css"rel="stylesheet">
+  <link href="../public/blogstyle.css" type="text/css"rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="grey lighten-3">
@@ -32,11 +33,14 @@
     <%const blog =doc.data(); %>
 
     <li><div class="collapsible-header #ef5350 red lighten-1">
-      <%=blog.title%>
+      <i class="small material-icons">book</i>
+     <div > <%=blog.title%></div>
+     <!-- <div class='container' style='margin-left: 500px;'> <a href="#"> <i class="small material-icons">delete</i></a></div> -->
+      
       </div>
       <div class="collapsible-body  #ef9a9a red lighten-3">
         <span> <%=blog.content%></span>
-      </div>
+      
       </li>
 
   <% }) %>
