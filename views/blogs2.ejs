@@ -33,10 +33,10 @@
     <%const blog =doc.data(); %>
 
     <li><div class="collapsible-header #ef5350 red lighten-1">
-      <i class="small material-icons">book</i>
+      
      <div > <%=blog.title%></div>
      <!-- <div class='container' style='margin-left: 500px;'> <a href="#"> <i class="small material-icons">delete</i></a></div> -->
-      
+      <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a>
       </div>
       <div class="collapsible-body  #ef9a9a red lighten-3">
         <span> <%=blog.content%></span>
