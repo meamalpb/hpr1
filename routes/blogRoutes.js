@@ -6,5 +6,6 @@ router.get('/blogs',(req,res)=>{
     res.render('blog-reg')
 });
 router.post('/blogs',blogController.postblogs);
+router.get('/blogs2',blogController.get_blogs2);
 
 module.exports = router;

@@ -15,3 +15,11 @@ module.exports.get_blog = (req,res) => {
     res.render('blog');
 }
 
+
+module.exports.get_blogs2 = (req,res) => {
+    firebase.firestore().collection('blogs').get().then(snapshot => {
+      const data =snapshot.docs;
+      res.render('blogs2',{data});
+     });
+       
+    }
