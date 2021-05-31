@@ -6,9 +6,28 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <title>Hprcse</title>
-  <link href="../public/blogstyle.css" type="text/css"rel="stylesheet">
+  <link href="../public/blogstyle.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    .row2{
+      min-height:200px;
+      padding:10px;
+      border: 2px solid #fff;
+      background-image: url('https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+    }
+    .row1{
+      border: 2px solid red;
+      min-height :30%;
+      margin: 20px;
+      padding: 20px;
+      
+
+    }
+  </style>
+
 </head>
 
 <body class="grey lighten-3">
@@ -25,7 +44,36 @@
     </ul>
   </div>
 </nav>
-      
+ <!-- new additional thinks adding      -->
+<div class="row2">
+ <div class="row1"><div  style="text-align: center;">REQUEST</div>
+   <ul class = "request">
+     <li><div  style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     <li><div  style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     <li><div style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     <li><div style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     <li><div style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     <li><div style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
+     
+     </ul>
+ </div>
+ <div class="row1">
+   <div  style="text-align: center;">USERS</div>
+   <ul class = "request">
+    <li><div  style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
+    <li><div  style="border-radius: 5%;border: 2px solid #fff;">user2</div></li>
+    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
+    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
+    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
+    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
+    
+    </ul>
+  </div>
+</div>
+
+<div class ="row" style ="background-color:red ;margin-top:20px;">
+  <div class="col s12" style="text-align: center;"> CONTENTS</div>
+</div>
 
 <ul class="collapsible" data-collapsible='accordion'>
   <% data.forEach(doc => { %>
