@@ -18,4 +18,10 @@ router.get('/register',(req,res)   =>  {
     res.render('register')
 });
 
+
+//admin only routes
+router.get('/admin-login',authController.get_admin_login);
+router.get('/admin-view',authController.get_admin_view)
+router.post('/admin-login',authController.post_admin_login)
+
 module.exports = router;

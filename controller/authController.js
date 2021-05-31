@@ -27,3 +27,29 @@ module.exports.get_register = (req,res) => {
 
     res.render('register')
 }
+
+
+
+
+//admin related controlls
+
+module.exports.get_admin_login=(req,res)=>{
+ res.render('admin-login')
+}
+
+module.exports.get_admin_view=(req,res)=>{
+  res.render('admin-view')
+}
+module.exports.post_admin_login=(req,res)=>{
+  firebase.firestore().collection('user_Admin').doc('1').get().then((val)=>{
+    console.log(val.data())
+    if(val.data().email==req.body.username && val.data().password==req.body.password){
+      res.redirect('/admin-view')
+  }
+})
+  
+}
+ // firebase.auth().signInWithEmailAndPassword(req.body.email,req.body.password).then((userCredential) => {
+  //   console.log(userCredential);
+  // })
+  // res.redirect('/admin-view')
