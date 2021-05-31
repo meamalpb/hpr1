@@ -37,14 +37,14 @@ module.exports.get_admin_login=(req,res)=>{
  res.render('admin-login')
 }
 
-module.exports.get_admin_view=(req,res)=>{
-  res.render('admin-view')
+module.exports.admin_blog_view=(req,res)=>{
+  res.render('/blogs2')
 }
 module.exports.post_admin_login=(req,res)=>{
   firebase.firestore().collection('user_Admin').doc('1').get().then((val)=>{
     console.log(val.data())
     if(val.data().email==req.body.username && val.data().password==req.body.password){
-      res.redirect('/admin-view')
+      res.redirect('/blogs2')
   }
 })
   
