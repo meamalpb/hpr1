@@ -1,6 +1,5 @@
 const firebase = require('firebase');
 
-//get post function
 module.exports.get_login = (req,res) => {
     res.render('login');
 }
@@ -10,10 +9,21 @@ module.exports.get_login = (req,res) => {
 module.exports.post_register = (req,res) => {
     firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
   .then((userCredential) => {
-    //saves the user email with user type : 1
-    firebase.firestore().collection('users').doc(userCredential.user.uid).set({email:userCredential.user.email,userType:1}).then((res)=>{console.log(res)})
+    firebase.firestore()
+    .collection('users').doc(userCredential.user.email).get()
+    .then((docSnap)=>{
+      if(docSnap.exists){
+        firebase.firestore().collection('users').doc(userCredential.user.email)
+        .update({
+          job_count:firebase.firestore.FieldValue.increment(1)
+        })
+      }
+      else{
+          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:1,username:req.body.username,active:1,rtype:'new job',job_count:0});
+      }
+    })
   })
-    res.redirect('/');
+    res.redirect('/wait');
 }
 
 
@@ -54,3 +64,6 @@ module.exports.edit_blog = (req,res) => {
   })
 }
 
+module.exports.getwait = (req,res) => {
+  res.render('wait')
+}
