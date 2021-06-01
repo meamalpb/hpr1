@@ -5,6 +5,7 @@ module.exports.get_login = (req,res) => {
     res.render('login');
 }
 
+
 //post register = creates a new user
 module.exports.post_register = (req,res) => {
     firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
@@ -15,6 +16,7 @@ module.exports.post_register = (req,res) => {
     res.redirect('/');
 }
 
+
 //post login = logs in with email and password
 module.exports.post_login = (req,res) => {
     firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
@@ -23,33 +25,32 @@ module.exports.post_login = (req,res) => {
   })
     res.redirect('/blogs2');
 }
-module.exports.get_register = (req,res) => {
 
+
+module.exports.get_register = (req,res) => {
     res.render('register')
 }
 
 
 
-
-//admin related controlls
-
-module.exports.get_admin_login=(req,res)=>{
- res.render('admin-login')
+module.exports.addblogs=(req,res)=>{
+  res.render('blog-reg');
 }
 
-module.exports.admin_blog_view=(req,res)=>{
-  res.render('/blogs2')
+module.exports.postblogs=async(req,res)=>{
+  console.log(req.body)
+  firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content}).then((val)=>{
+      console.log(val);
+      res.redirect('/')
+  })
+
 }
-module.exports.post_admin_login=(req,res)=>{
-  firebase.firestore().collection('user_Admin').doc('1').get().then((val)=>{
-    console.log(val.data())
-    if(val.data().email==req.body.username && val.data().password==req.body.password){
-      res.redirect('/blogs2')
-  }
-})
-  
+
+
+module.exports.edit_blog = (req,res) => {
+  firebase.firestore().collection('blogs').doc(req.params.id).get().then((val)=>{
+      res.render('editBlog',{val});
+      console.log(val.data())
+  })
 }
- // firebase.auth().signInWithEmailAndPassword(req.body.email,req.body.password).then((userCredential) => {
-  //   console.log(userCredential);
-  // })
-  // res.redirect('/admin-view')
+

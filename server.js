@@ -2,9 +2,8 @@ const express               = require("express");
 var app                     = express();
 const config                = require('./config')
 const firebase              = require('firebase')
-const authRoutes            = require('./routes/authRoutes')
-const blogRoutes            = require('./routes/blogRoutes');
-
+const userRoutes            = require('./routes/userRoutes')
+const adminRoutes           = require('./routes/adminRoutes')
 firebase.initializeApp(config);
 
 app.use(express.json());
@@ -17,8 +16,8 @@ app.get('/',(req,res)   =>  {
  });
 
  //all routes related to authorisation is in authRoutes
- app.use(authRoutes);
- app.use(blogRoutes);
+ app.use(userRoutes);
+ app.use(adminRoutes);
  
 
 
