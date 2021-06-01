@@ -17,13 +17,23 @@ module.exports.get_admin_login=(req,res)=>{
    })
      
    }
-
+  //  firebase.firestore().collection('blogs').get().then(snapshot => {
+  //   const data =snapshot.docs;
+  //   res.render('blogs2',{data});
+  //  });
+ 
+  
    
-module.exports.get_blogs2 = (req,res) => {
-  firebase.firestore().collection('blogs').get().then(snapshot => {
-    const data =snapshot.docs;
-    res.render('blogs2',{data});
-   });
+module.exports.get_blogs2 = async (req,res) => {
+  const blogsData= await firebase.firestore().collection('blogs').get();
+  const userData= await firebase.firestore().collection('userData').where('active', '==', 1).get();
+  const data = blogsData.docs;
+  const data2= userData.docs;
+ 
+
+  
+  res.render('blogs2',{data,data2});
+
      
   }
 

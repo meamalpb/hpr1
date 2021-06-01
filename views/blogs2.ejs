@@ -47,7 +47,7 @@
 </nav>
  <!-- new additional thinks adding      -->
 <div class="row2">
- <div class="row1"><div  style="text-align: center;">REQUEST</div>
+ <!-- <div class="row1"><div  style="text-align: center;">REQUEST</div>
    <ul class = "request">
      <li><div  style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
      <li><div  style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
@@ -57,17 +57,16 @@
      <li><div style="border-radius: 5%;border: 2px solid #fff;">request</div></li>
      
      </ul>
- </div>
+ </div> -->
  <div class="row1">
    <div  style="text-align: center;">USERS</div>
-   <ul class = "request">
-    <li><div  style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
-    <li><div  style="border-radius: 5%;border: 2px solid #fff;">user2</div></li>
-    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
-    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
-    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
-    <li><div style="border-radius: 5%;border: 2px solid #fff;">user1</div></li>
-    
+   <ul class = "users">
+    <% data2.forEach(user => { %>
+
+      <%const userdata =user.data(); %>
+    <li><div  style="border-radius: 5%;border: 2px solid #fff;"><%=userdata.username%></div></li>
+    <% }) %>
+
     </ul>
   </div>
 </div>
