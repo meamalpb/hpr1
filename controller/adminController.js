@@ -17,11 +17,7 @@ module.exports.get_admin_login=(req,res)=>{
    })
      
    }
-  //  firebase.firestore().collection('blogs').get().then(snapshot => {
-  //   const data =snapshot.docs;
-  //   res.render('blogs2',{data});
-  //  });
- 
+
   
    
 module.exports.get_blogs2 = async (req,res) => {
@@ -38,9 +34,10 @@ module.exports.get_blogs2 = async (req,res) => {
   }
 
   module.exports.get_admin_user_request=(req,res)=>{
-    firebase.firestore().collection('requests').get().then(snapshot => {
-      const data =snapshot.docs;
+    firebase.firestore().collection('users')
+    .where('active','==',1).get()
+    .then((val)=>{
+      const data = val.docs;
       res.render('admin-view-request',{data});
-     });
-       
+    })
     }
