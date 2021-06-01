@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Hprcse</title>
+  <link href="../public/blogstyle.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    .row2{
+      min-height:200px;
+      padding:10px;
+      border: 2px solid #fff;
+      background-image: url('https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+    }
+    .row1{
+      border: 2px solid red;
+      min-height :30%;
+      margin: 20px;
+      padding: 20px;
+      
+
+    }
+  </style>
+
+</head>
+<body class="grey lighten-3">
+ 
+    <nav>
+      <div class="nav-wrapper">
+       
+        
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="create">
+            <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
+          </li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class ="row" style ="background-color:red ;margin-top:20px;">
+        
+      </div>
+      <div class="row2">
+        <div class="row1"><div  style="text-align: center;">REQUEST</div>
+          <ul class = "request">
+            <% data.forEach(doc => { %>
+
+                <%const request =doc.data(); %>
+            <li><div  style="border-radius: 5%;border: 2px solid #fff;"><div>User name :<%=request.username%> </div><div>Request type :<%=request.request%></div><div><button>Accept</button><button>Reject</button></div></div></li>
+            <% }) %>
+           
+            </ul>
+        </div>
+       
+      
+      <ul class="collapsible" data-collapsible='accordion'>
+       
+       
+      </ul>
+      
+       
+      
+      
+      <div id="modal-create" class="modal">
+        <div class="modal-content">
+          <h4>Create Content</h4><br />
+          <form id="create-form">
+            <div class="input-field">
+              <input type="text" id="title" required>
+              <label for="title"> Title</label>
+            </div>
+            <div class="input-field">
+              <textarea id="content" class="materialize-textarea" required></textarea>
+              <label for="content">Content</label>
+            </div>
+            <button class="btn red darken-2 z-depth-0">Enter</button>
+          </form>
+        </div>
+      </div>
+      
+      
+      <script>  document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+      
+      
+        var modals = document.querySelectorAll('.modal');
+        M.Modal.init(modals);
+      });
+      </script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+      
+      
+      
+      </body>
+      
+      </html>

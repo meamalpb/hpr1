@@ -26,3 +26,11 @@ module.exports.get_blogs2 = (req,res) => {
    });
      
   }
+
+  module.exports.get_admin_user_request=(req,res)=>{
+    firebase.firestore().collection('requests').get().then(snapshot => {
+      const data =snapshot.docs;
+      res.render('admin-view-request',{data});
+     });
+       
+    }
