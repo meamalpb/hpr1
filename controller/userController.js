@@ -2,8 +2,6 @@ const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
     res.render('login');
-    console.log(firebase.auth().currentUser);
-
 }
 
 
@@ -21,7 +19,7 @@ module.exports.post_register = (req,res) => {
         })
       }
       else{
-          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:1,username:req.body.username,active:1,rtype:'new job',job_count:0});
+          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:1,rtype:'new job',job_count:0});
       }
     })
   })
@@ -31,10 +29,22 @@ module.exports.post_register = (req,res) => {
 
 //post login = logs in with email and password
 module.exports.post_login = async (req,res) => {
-  const data = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password);
-  res.redirect('/wait');
+firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).then((userCredential)=>{
+  firebase.firestore().collection('users').doc(userCredential.user.email).get().then((val)=>{
+    if(val.data().active==0){
+        res.redirect('/wait')
+    }
+    else if(val.data().active==1){
+      res.redirect('/addblog')
+    }
+    else if(val.data().active==2){
+      res.send('Sorry you were rejected')
+    }
+  })
+
+    })
     
-}
+  }
 
 
 module.exports.get_register = (req,res) => {
@@ -43,16 +53,17 @@ module.exports.get_register = (req,res) => {
 
 
 
-module.exports.addblogs=(req,res)=>{
+exports.addblogs=async (req,res)=>{
+  const data = firebase.auth().currentUser
+  console.log(data.email)
   res.render('blog-reg');
 }
 
-module.exports.postblogs=async(req,res)=>{
-  console.log(req.body)
-  firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content}).then((val)=>{
-      console.log(val);
-      res.redirect('/')
-  })
+module.exports.postblogs = async(req,res)=>{
+  const currentuser = await firebase.auth().currentUser
+  const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email});
+  const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
+  res.redirect('/')
 
 }
 
@@ -63,12 +74,11 @@ module.exports.edit_blog = (req,res) => {
   })
 }
 
-module.exports.getwait = (req,res) => {
+exports.getwait = (req,res) => {
   res.render('wait');
 }
 
 module.exports.postedit_blog = async (req,res) => {
-
   firebase.firestore().collection('blogs').doc(req.params.id).update({
     'title':req.body.title,
     'content':req.body.content
