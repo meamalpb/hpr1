@@ -4,6 +4,7 @@ const config                = require('./config')
 const firebase              = require('firebase')
 const userRoutes            = require('./routes/userRoutes')
 const adminRoutes           = require('./routes/adminRoutes')
+const internalRoutes        = require('./routes/internalRotes')
 firebase.initializeApp(config);
 
 app.use(express.json());
@@ -18,7 +19,7 @@ app.get('/',(req,res)   =>  {
  //all routes related to authorisation is in authRoutes
  app.use(userRoutes);
  app.use(adminRoutes);
- 
+ app.use(internalRoutes);
 
 
 app.listen(3000,()=>{console.log('http://localhost:3000/')});
