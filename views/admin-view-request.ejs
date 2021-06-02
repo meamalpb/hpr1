@@ -9,7 +9,7 @@
   <link href="../public/blogstyle.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+   
   <style>
     .row2{
       min-height:200px;
@@ -52,7 +52,10 @@
             <% data.forEach(doc => { %>
 
                 <%const request =doc.data(); %>
-            <li><div  style="border-radius: 5%;border: 2px solid #fff;"><div>User name :<%=request.username%> </div><div>Request type :<%=request.request%></div><div><button>Accept</button><button>Reject</button></div></div></li>
+                <%const emaildata =request.email; %>
+
+            <li><div  style="border-radius: 5%;border: 2px solid #fff;"><div>User name :<%=request.username%> </div><div>Request type :<%=request.request%></div><div>
+              <a href="/requests/<%=doc.id %> "><button  >Accept</button></a></div><div><a href= "/requests2/<%=doc.id %> "><button>Reject</button></a></div></div></li>
             <% }) %>
            
             </ul>

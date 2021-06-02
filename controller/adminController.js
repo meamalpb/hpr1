@@ -35,9 +35,33 @@ module.exports.get_blogs2 = async (req,res) => {
 
   module.exports.get_admin_user_request=(req,res)=>{
     firebase.firestore().collection('users')
-    .where('active','==',1).get()
+    .where('active','==',0).get()
     .then((val)=>{
       const data = val.docs;
       res.render('admin-view-request',{data});
     })
+    }
+  
+
+    module.exports.activateUser=  (req,res)=>{
+      firebase.firestore().collection('users').doc(req.params.id).update({
+        active:1,
+        
+      }).then(async(_)=>{
+        const requestdata= await firebase.firestore().collection('users').where('active','==',0).get();
+        const data= requestdata.docs;
+        res.render('admin-view-request',{data});
+      })
+    }
+
+
+    module.exports.rejectUser=  (req,res)=>{
+      firebase.firestore().collection('users').doc(req.params.id).update({
+        active:2,
+        
+      }).then(async(_)=>{
+        const requestdata= await firebase.firestore().collection('users').where('active','==',0).get();
+        const data= requestdata.docs;
+        res.render('admin-view-request',{data});
+      })
     }
