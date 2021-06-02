@@ -20,13 +20,26 @@
     }
     .row1{
       border: 2px solid red;
-      height :30%;
+      height :40%;
       margin: 20px;
       padding: 20px;
-      overflow-y: scroll;
+     
       
 
     }
+    .row3{
+      height:80%;
+      overflow-y: scroll;
+    }
+    .col2
+    { width:1374px;
+      float: left;
+     
+    }
+    .col3{
+      float:right;
+    }
+      
   </style>
 
 </head>
@@ -39,8 +52,10 @@
     
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li class="create">
+        <li><a href="/requests">REQUESTS</a></li>
+        <!-- </li>
         <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
-      </li>
+      </li> -->
       <li><a href="#">Logout</a></li>
     </ul>
   </div>
@@ -59,32 +74,35 @@
      </ul>
  </div> -->
  <div class="row1">
-   <div  style="text-align: center;">USERS</div>
+  <div  style="text-align: center;"><h5>USERS</h5></div>
+  <div class="row3">
    <ul class = "users">
     <% data2.forEach(user => { %>
 
       <%const userdata =user.data(); %>
-    <li><div  style="border-radius: 5%;border: 2px solid #fff;"><%=userdata.username%></div></li>
+    <li><div  style="border-radius: 5%;border: 2px solid #fff;padding:10px"><%=userdata.username%></div></li>
     <% }) %>
 
-    </ul>
+    </ul></div>
   </div>
 </div>
 
-<div class ="row" style ="background-color:red ;margin-top:20px;">
-  <div class="col s12" style="text-align: center;"> CONTENTS</div>
+<div class ="row" style ="background-color:hsl(0, 88%, 74%) ;margin-top :20px;padding:10px;">
+  <div class="col s12" style="text-align: center;">
+     <h5 style="color:white">BLOGS</h5>
+  </div>
 </div>
 
-<ul class="collapsible" data-collapsible='accordion'>
+<ul class="collapsible" data-collapsible='onOpenStart'>
   <% data.forEach(doc => { %>
 
     <%const blog =doc.data(); %>
 
-    <li><div class="collapsible-header #ef5350 red lighten-1">
+    <li><div class="collapsible-header #ef5350 red lighten-1 row4">
       
-     <div > <%=blog.title%></div>
+     <div class="col2" > <%=blog.title%></div>
      <!-- <div class='container' style='margin-left: 500px;'> <a href="#"> <i class="small material-icons">delete</i></a></div> -->
-      <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a>
+     <div class="col3"> <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a></div>
       </div>
       <div class="collapsible-body  #ef9a9a red lighten-3">
         <span> <%=blog.content%></span>
