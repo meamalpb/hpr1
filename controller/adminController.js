@@ -47,11 +47,7 @@ module.exports.get_blogs2 = async (req,res) => {
       firebase.firestore().collection('users').doc(req.params.id).update({
         active:1,
         
-      }).then(async(_)=>{
-        const requestdata= await firebase.firestore().collection('users').where('active','==',0).get();
-        const data= requestdata.docs;
-        res.render('admin-view-request',{data});
-      })
+      }).then(()=>{res.redirect('/requests')})
     }
 
 
@@ -59,9 +55,5 @@ module.exports.get_blogs2 = async (req,res) => {
       firebase.firestore().collection('users').doc(req.params.id).update({
         active:2,
         
-      }).then(async(_)=>{
-        const requestdata= await firebase.firestore().collection('users').where('active','==',0).get();
-        const data= requestdata.docs;
-        res.render('admin-view-request',{data});
-      })
+      }).then(()=>{res.redirect('/requests')})
     }

@@ -67,10 +67,14 @@ module.exports.getwait = (req,res) => {
   res.render('wait');
 }
 
-module.exports.postedit_blog = (req,res) => {
+module.exports.postedit_blog = async (req,res) => {
+
   firebase.firestore().collection('blogs').doc(req.params.id).update({
     'title':req.body.title,
     'content':req.body.content
-  }).then((val)=>  {res.redirect('/blogs')})
-
+  }).then((val)=>  {
+    res.redirect('/blogs')
+  console.log(firebase.auth().currentUser)
+  })
+  .catch((err)=>{console.log(err)})
 }
