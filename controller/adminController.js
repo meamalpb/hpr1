@@ -5,10 +5,11 @@ module.exports.get_admin_login=(req,res)=>{
     res.render('admin-login')
    }
    
-   module.exports.admin_blog_view=(req,res)=>{
+module.exports.admin_blog_view=(req,res)=>{
      res.render('/blogs2')
    }
-   module.exports.post_admin_login=(req,res)=>{
+
+module.exports.post_admin_login=(req,res)=>{
      firebase.firestore().collection('user_Admin').doc('1').get().then((val)=>{
        console.log(val.data())
        if(val.data().email==req.body.username && val.data().password==req.body.password){
@@ -25,15 +26,10 @@ module.exports.get_blogs2 = async (req,res) => {
   const userData= await firebase.firestore().collection('users').where('active', '==', 1).get();
   const data = blogsData.docs;
   const data2= userData.docs;
- 
-
-  
-  res.render('blogs2',{data,data2});
-
-     
+  res.render('blogs2',{data,data2});  
   }
 
-  module.exports.get_admin_user_request=(req,res)=>{
+module.exports.get_admin_user_request=(req,res)=>{
     firebase.firestore().collection('users')
     .where('active','==',0).get()
     .then((val)=>{
@@ -43,7 +39,7 @@ module.exports.get_blogs2 = async (req,res) => {
     }
   
 
-    module.exports.activateUser=  (req,res)=>{
+module.exports.activateUser=  (req,res)=>{
       firebase.firestore().collection('users').doc(req.params.id).update({
         active:1,
         
@@ -51,7 +47,7 @@ module.exports.get_blogs2 = async (req,res) => {
     }
 
 
-    module.exports.rejectUser=  (req,res)=>{
+module.exports.rejectUser=  (req,res)=>{
       firebase.firestore().collection('users').doc(req.params.id).update({
         active:2,
         
