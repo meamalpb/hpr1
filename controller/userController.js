@@ -30,11 +30,9 @@ module.exports.post_register = (req,res) => {
 
 
 //post login = logs in with email and password
-module.exports.post_login = (req,res) => {
-    firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
-  .then((userCredential) => {
-    res.redirect('/wait');
-  })
+module.exports.post_login = async (req,res) => {
+  const data = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password);
+  res.redirect('/wait');
     
 }
 
@@ -62,10 +60,17 @@ module.exports.postblogs=async(req,res)=>{
 module.exports.edit_blog = (req,res) => {
   firebase.firestore().collection('blogs').doc(req.params.id).get().then((val)=>{
       res.render('editBlog',{val});
-      console.log(val.data())
   })
 }
 
 module.exports.getwait = (req,res) => {
   res.render('wait');
+}
+
+module.exports.postedit_blog = (req,res) => {
+  firebase.firestore().collection('blogs').doc(req.params.id).update({
+    'title':req.body.title,
+    'content':req.body.content
+  }).then((val)=>  {res.redirect('/blogs')})
+
 }

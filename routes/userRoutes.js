@@ -12,5 +12,7 @@ router.get('/addblog',userController.addblogs);
 router.post('/addblog',userController.postblogs);
 router.get('/blogs/:id',userController.edit_blog);
 router.get('/wait',userController.getwait);
+router.post('/blogs/:id',userController.postedit_blog);
+
 
 module.exports = router;
