@@ -2,6 +2,8 @@ const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
     res.render('login');
+    console.log(firebase.auth().currentUser);
+
 }
 
 
@@ -31,9 +33,9 @@ module.exports.post_register = (req,res) => {
 module.exports.post_login = (req,res) => {
     firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
   .then((userCredential) => {
-    console.log(userCredential);
+    res.redirect('/wait');
   })
-    res.redirect('/blogs2');
+    
 }
 
 
@@ -65,5 +67,5 @@ module.exports.edit_blog = (req,res) => {
 }
 
 module.exports.getwait = (req,res) => {
-  res.render('wait')
+  res.render('wait');
 }
