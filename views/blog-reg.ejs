@@ -1,53 +1,90 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <link rel="stylesheet" href="./login1.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>blog add</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Hprcse</title>
+  <link href="../public/blogstyle.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+  <style>
+   
+    .row1{
+      border: 2px solid red;
+      min-height :30%;
+      margin: 20px;
+      padding: 20px;
+      
+
+    }
+  </style>
+
 </head>
-<body>
-    <header>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="#" style="display:none;" >Login</a></li>
-                <li><a href="/costumer-login">Login</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="overlay">
-        <a class="close">&times;</a>
-            <div class="overlay__content">
-                <a href="#" >Login</a>
-                <a href="#">Register</a>
-                <a href="#">About</a>
+<body class="grey lighten-3">
+ 
+    <nav>
+      <div class="nav-wrapper">
+       
+        
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="create">
+            <a href="#" class=" modal-trigger" data-target="modal-create">Request For Job</a>
+          </li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class ="row" style ="background-color:red ;margin-top:20px;">
+        
+      </div>
+      <div class="row2">
+        
+       
+      
+      <ul class="collapsible" data-collapsible='accordion'>
+       
+       
+      </ul>
+      
+       
+      
+     
+      <div id="modal-create" class="modal">
+        <div class="modal-content">
+          <h4>Create Content</h4><br />
+          <form id="create-form" action="/addblog" method="POST">
+            <div class="input-field">
+              <input type="text" id="title" name="title" required>
+              <label for="title"> Title</label>
             </div>
-    </div>
-<form action="/addblog" method="POST">
-<div class="cent">
-    <div class="wrapper">
-        <h1 class='ptype'>Blog Add</h1>
-        <div class="input-data">
-          <input type="text" name="title" required>
-                <div class="underline">
-                </div>
-            <label>Title</label>
+            <div class="input-field">
+              <textarea id="content" name="content" class="materialize-textarea" required></textarea>
+              <label for="content">Content</label>
+            </div>
+            <button class="btn red darken-2 z-depth-0">Enter</button>
+          </form>
         </div>
-    </div>
-  <div class="wrapper">
-        <div class="input-data">
-            <input type="text" name="content" required>
-                <div class="underline">
-                </div>
-            <label>Content</label>
-        </div>
-        <button class="butt">submit</button>
-    </div>
-    
-</div>
-</form>
-</body>
-</html>
+      </div>
+      
+      
+      <script>  document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+      
+      
+        var modals = document.querySelectorAll('.modal');
+        M.Modal.init(modals);
+      });
+      </script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+      
+      
+      
+      </body>
+      
+      </html>

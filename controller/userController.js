@@ -19,7 +19,7 @@ module.exports.post_register = (req,res) => {
         })
       }
       else{
-          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:1,rtype:'new job',job_count:0});
+          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:0,rtype:'new job',job_count:0});
       }
     })
   })
@@ -54,17 +54,17 @@ module.exports.get_register = (req,res) => {
 
 
 exports.addblogs=async (req,res)=>{
-   const data = firebase.auth().currentUser
-   console.log(data.email)
+  // const data = firebase.auth().currentUser
+  // console.log(data.email)
   res.render('blog-reg');
 }
 
 module.exports.postblogs = async(req,res)=>{
-  const currentuser = await firebase.auth().currentUser
- const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,date: firebase.firestore.FieldValue.serverTimestamp()});
+ const currentuser = await firebase.auth().currentUser
+  const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()});
 
   const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
-  res.redirect('/')
+  res.redirect('/wait')
 
 }
 
