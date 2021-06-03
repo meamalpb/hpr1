@@ -9,14 +9,27 @@ module.exports.admin_blog_view=(req,res)=>{
      res.render('/blogs2')
    }
 
-module.exports.post_admin_login=(req,res)=>{
-     firebase.firestore().collection('user_Admin').doc('1').get().then((val)=>{
-       console.log(val.data())
-       if(val.data().email==req.body.username && val.data().password==req.body.password){
-         res.redirect('/blogs2')
-     }
-   })
-     
+module.exports.post_admin_login=async (req,res)=>{
+
+  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).then((userCredential)=>{
+    firebase.firestore().collection('admin').doc(userCredential.user.uid).get().then((doc) => {
+      if(doc.exists){
+        res.redirect('/blogs')
+         }
+      else{
+        res.send('Wrong credentials')
+      }
+    })
+      })
+    //  const userCredential = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password);
+    //  const check = await firebase.firestore().collection('admin').doc(userCredential.uid);
+    //  console.log(userCredential.uid);
+    // //  if(check.exists){
+    // //    res.render('/blogs')
+    // //  }
+    // //  else{
+    // //    res.send('Credentials wrong');
+    // //  }
    }
 
   
