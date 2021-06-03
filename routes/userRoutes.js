@@ -15,6 +15,8 @@ router.get('/wait',userController.getwait);
 router.post('/blogs/:id',userController.postedit_blog);
 router.post('/forgotpassword',userController.post_forgotpassword)
 router.get('/forgotpassword',userController.get_forgotpassword)
+router.get('/userview',userController.displayUserView);
+
 
 
 module.exports = router;

@@ -35,7 +35,7 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
         res.redirect('/wait')
     }
     else if(val.data().active==1){
-      res.redirect('/addblog')
+      res.redirect('/userview')
     }
     else if(val.data().active==2){
       res.send('Sorry you were rejected')
@@ -106,4 +106,25 @@ module.exports.post_forgotpassword=(req,res)=>{
 }
 module.exports.get_forgotpassword=(req,res)=>{
   res.render('forgot_password')
+}
+
+module.exports.displayUserView =async (req,res) => {
+  const val1=await firebase.auth().currentUser.email;
+ 
+  const val3= await firebase.firestore().collection('users').doc(val1).get();
+ 
+  if(val3.data().userType==0)
+  { 
+    const val2= await firebase.firestore().collection('blogs').where('user','==',val1).get();
+    res.render('userview',{val2,val3});
+
+  }
+  else{
+    const val2= await firebase.firestore().collection('blogs').get();
+    res.render('userview',{val2,val3});
+  }
+ 
+ 
+     
+  
 }
