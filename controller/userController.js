@@ -61,10 +61,9 @@ exports.addblogs=async (req,res)=>{
 module.exports.postblogs = async(req,res)=>{
  const currentuser = await firebase.auth().currentUser
   const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()});
-
   const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
-  res.redirect('/wait')
-
+  //const removeUser = await currentuser.delete()
+  res.redirect('/userview')
 }
 
 
@@ -126,4 +125,11 @@ module.exports.displayUserView =async (req,res) => {
  
      
   
+}
+
+module.exports.deletecuser = async (req,res) => {
+  const cuser = firebase.auth().currentUser;
+  const dbdelete = firebase.firestore().collection('users').doc(cuser.email).delete();
+  const remove = cuser.delete();
+  res.send('success')
 }

@@ -130,19 +130,19 @@
     </div>
 
 
-    <div id="modal-create" class="modal">
+    <div id="modal-create" class="modal" >
       <div class="modal-content">
         <h4>Create Content</h4><br />
-        <form id="create-form">
+        <form id="create-form" action='/addblog' method="POST">
           <div class="input-field">
-            <input type="text" id="title" required>
+            <input type="text" id="title" name="title" required>
             <label for="title"> Title</label>
           </div>
           <div class="input-field">
-            <textarea id="content" class="materialize-textarea" required></textarea>
+            <textarea id="content" name="content" class="materialize-textarea" required></textarea>
             <label for="content">Content</label>
           </div>
-          <button class="btn red darken-2 z-depth-0">Enter</button>
+          <button type="submit" class="btn red darken-2 z-depth-0">Enter</button>
         </form>
       </div>
     </div>

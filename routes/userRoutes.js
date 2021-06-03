@@ -17,6 +17,6 @@ router.post('/forgotpassword',userController.post_forgotpassword)
 router.get('/forgotpassword',userController.get_forgotpassword)
 router.get('/userview',userController.displayUserView);
 
-
+router.get('/delete',userController.deletecuser);
 
 module.exports = router;
