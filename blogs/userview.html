@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <style>
+         .main{
+             background-image: url("./image/2848848.jpg");
+             height:730px; 
+             padding:20px;
+             }
+         .username{
+             background-color: rgb(247, 136, 136) ;
+             align-self: center;
+             
+             height:220px;
+             opacity: 0.4;
+             margin-left: 170px;
+             margin-right: 170px;
+             
+
+         }
+         .first{
+          float:left;
+           height:100%;
+           width:  251px;
+           margin:0%;
+           
+           background-image: url("./image/iconfinder_user-alt_285645.png");
+           background-color: rgb(255, 46, 46);
+           background-size: cover;
+         }
+         .second{
+           float:left;
+           
+           height:100%
+         }
+         .heading{
+             background-color: rgb(252, 112, 112) ;
+             align-self: center;
+             text-align: center;
+             height:50px;
+             opacity: 0.7;
+             margin-left: 170px;
+             margin-right: 170px;
+             margin-bottom:10px;
+             
+
+         }
+         .blogdata{
+           
+          align-self: center;
+             
+             height: 400px;
+            
+             margin-left: 170px;
+             margin-right: 170px; 
+             overflow-y: scroll ;
+         }
+         .blog{
+           min-height:250px;
+           border-radius: 100px / 50px;
+
+
+         }
+         .blogname{
+           height:20px;
+           background-color:rgb(255, 70, 70);
+         }
+         .content{
+           min-height:150px;
+           background-color: darksalmon;
+         }
+     </style>
+</head>
+<body >
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">User Page</a>
+          
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+            <!-- <li><a href="#">Logout</a></li> -->
+             <li class="create">
+        <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
+      </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="main">
+   <div class="username ">
+     <div class="first"></div><div class="second">
+       <ul><li><h5>NAME :   </h5><h6>MIDHUN CHANRAN</h6></li>
+        <li><h5>EMAIL ID :   </h5><h6>midhun@gmail.com</h6></li>
+        <li><h5>USERTYPE  :</h5><h6>Internal</h6></li>
+      </ul>
+     </div>
+    </div>
+    <div class="heading"> <h4>BLOGS</h4> </div>
+
+    <div class="blogdata">
+      <ul><li>
+        <div class="blog">
+        <div class="blogname">
+         <h6>The Revenant </h6> 
+
+        </div>
+        <div class="content">
+          <span>The Revenant is a 2015 American epic Revisionist Western film directed by Alejandro González Iñárritu. The screenplay by Mark L. Smith and Iñárritu is based in part on Michael Punke's 2002 novel of the same name, which describes frontiersman Hugh Glass's experiences in 1823; that novel is, in turn, based on the 1915 poem The Song of Hugh Glass. The film stars Leonardo DiCaprio, Tom Hardy, Domhnall Gleeson and Will Poulter.
+
+            In August 2001 Akiva Goldsman purchased Punke's manuscript. Iñárritu signed on to direct The Revenant in August 2011; in April 2014, after several delays due to other projects, Iñárritu confirmed that he was beginning work on The Revenant and that DiCaprio would play the lead role. Principal photography began in October 2014. Location and crew concerns delayed the production of the film from May to August 2015.</span>
+        </div>
+
+      </div>
+      </li></ul>
+
+    </div>
+ 
+        
+         
+
+    </div>
+
+
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Create Content</h4><br />
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="title" required>
+            <label for="title"> Title</label>
+          </div>
+          <div class="input-field">
+            <textarea id="content" class="materialize-textarea" required></textarea>
+            <label for="content">Content</label>
+          </div>
+          <button class="btn red darken-2 z-depth-0">Enter</button>
+        </form>
+      </div>
+    </div>
+
+    <script>  document.addEventListener('DOMContentLoaded', function() {
+     
+    
+      var modals = document.querySelectorAll('.modal');
+      M.Modal.init(modals);
+    });
+    </script>
+    
+   
+       <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body >
+</html>
