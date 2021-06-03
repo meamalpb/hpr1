@@ -89,3 +89,21 @@ module.exports.postedit_blog = async (req,res) => {
   })
   .catch((err)=>{console.log(err)})
 }
+
+module.exports.post_forgotpassword=(req,res)=>{
+  var auth=firebase.auth()
+  var email=req.body.email
+  if(email!=""){
+    auth.sendPasswordResetEmail(email).then(function(){
+   console.log('email has send to the mail account')
+    }).catch(function(error){
+      console.log(error)
+    })
+  }else{
+   console.log("please type your email first!!!")
+  }
+  
+}
+module.exports.get_forgotpassword=(req,res)=>{
+  res.render('forgot_password')
+}
