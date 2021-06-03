@@ -54,14 +54,15 @@ module.exports.get_register = (req,res) => {
 
 
 exports.addblogs=async (req,res)=>{
-  const data = firebase.auth().currentUser
-  console.log(data.email)
+   const data = firebase.auth().currentUser
+   console.log(data.email)
   res.render('blog-reg');
 }
 
 module.exports.postblogs = async(req,res)=>{
   const currentuser = await firebase.auth().currentUser
-  const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email});
+ // const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()});
+  const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:'321a@gmail.com',date: firebase.firestore.FieldValue.serverTimestamp()});
   const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
   res.redirect('/')
 
