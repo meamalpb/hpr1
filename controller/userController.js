@@ -54,8 +54,7 @@ module.exports.get_register = (req,res) => {
 
 
 exports.addblogs=async (req,res)=>{
-  // const data = firebase.auth().currentUser
-  // console.log(data.email)
+  
   res.render('blog-reg');
 }
 
@@ -80,14 +79,14 @@ exports.getwait = (req,res) => {
 }
 
 module.exports.postedit_blog = async (req,res) => {
-  firebase.firestore().collection('blogs').doc(req.params.id).update({
+  const val = await firebase.firestore().collection('blogs').doc(req.params.id).update({
     'title':req.body.title,
     'content':req.body.content
-  }).then((val)=>  {
-    res.redirect('/blogs')
-  console.log(firebase.auth().currentUser)
-  })
-  .catch((err)=>{console.log(err)})
+  });
+  const cUser = firebase.auth().currentUser;
+  const remove = await firebase.firestore().collection('users').doc(cUser.email).update({'active':0})
+  res.redirect('/')
+
 }
 
 module.exports.post_forgotpassword=(req,res)=>{
