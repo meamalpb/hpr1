@@ -2,7 +2,11 @@ const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
     res.render('login');
-    console.log(firebase.auth().currentUser.uid)
+    //console.log(firebase.auth().currentUser.uid)
+}
+
+module.exports.get_register = (req,res) => {
+    res.render('register')
 }
 
 
@@ -32,6 +36,7 @@ module.exports.post_register = (req,res) => {
 module.exports.post_login = async (req,res) => {
 firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).then((userCredential)=>{
   firebase.firestore().collection('users').doc(userCredential.user.email).get().then((val)=>{
+
     if(val.data().active==0){
         res.redirect('/wait')
     }
@@ -47,10 +52,47 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
     
   }
 
-
-module.exports.get_register = (req,res) => {
-    res.render('register')
+  module.exports.displayUserView =async (req,res) => {
+    const val1=await firebase.auth().currentUser.email;
+    // const val3= await firebase.firestore().collection('users').doc(val1).get();
+    await firebase.firestore().collection('users').doc(val1).get().then(async(val3)=>{
+      if(val3.data().userType==0){
+          await firebase.firestore().collection('blogs').where('user','==',val1).get().then(async(val2)=>{
+            res.render('userview',{val2,val3})
+          })
+      }else if(val3.data().userType==1){
+        await firebase.firestore().collection('blogs').get().then((val2)=>{
+          res.render('userview',{val2,val3})
+        })
+      }else{
+        res.send('no such user found')
+      }
+    });
 }
+
+module.exports.postblogs = async(req,res)=>{
+  const currentuser = await firebase.auth().currentUser
+  if(currentuser!=null){
+    if(currentuser.data().userType==0){
+      await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()})
+      .then((data)=>{
+        res.redirect('/wait')
+     })
+
+    }else{
+      res.send('you are not allowed to add blogs')
+    }
+   //const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
+    //const removeUser = await currentuser.delete()
+    }else{
+    res.send('no permission')
+  }
+ }
+
+
+
+
+
 
 
 
@@ -66,13 +108,7 @@ module.exports.addblogs=async (req,res)=>{
   })
 }
 
-module.exports.postblogs = async(req,res)=>{
- const currentuser = await firebase.auth().currentUser
-  const data = await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()});
-  const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
-  //const removeUser = await currentuser.delete()
-  res.redirect('/userview')
-}
+
 
 
 module.exports.edit_blog = (req,res) => {
@@ -114,30 +150,12 @@ module.exports.get_forgotpassword=(req,res)=>{
   res.render('forgot_password')
 }
 
-module.exports.displayUserView =async (req,res) => {
-  const val1=await firebase.auth().currentUser.email;
- 
-  const val3= await firebase.firestore().collection('users').doc(val1).get();
- 
-  if(val3.data().userType==0)
-  { 
-    const val2= await firebase.firestore().collection('blogs').where('user','==',val1).get();
-    res.render('userview',{val2,val3});
 
-  }
-  else{
-    const val2= await firebase.firestore().collection('blogs').get();
-    res.render('userview',{val2,val3});
-  }
- 
- 
-     
-  
-}
 
 module.exports.deletecuser = async (req,res) => {
   const cuser = firebase.auth().currentUser;
   const dbdelete = firebase.firestore().collection('users').doc(cuser.email).delete();
   const remove = cuser.delete();
   res.send('success')
+
 }
