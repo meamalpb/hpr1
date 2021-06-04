@@ -2,7 +2,7 @@ const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
     res.render('login');
-    console.log(firebase.auth().currentUser)
+    console.log(firebase.auth().currentUser.uid)
 }
 
 

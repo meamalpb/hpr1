@@ -54,7 +54,7 @@
                 <%const request =doc.data(); %>
                 <%const emaildata =request.email; %>
 
-            <li><div  style="border-radius: 5%;border: 2px solid #fff;"><div>User name :<%=request.username%> </div><div>Request type :<%=request.request%></div><div>
+            <li><div  style="border-radius: 5%;border: 2px solid #fff;"><div>User name :<%=request.username%> </div><div>Job count:<%=request.job_count%></div><div>
               <a href="/requests/<%=doc.id %> "><button  >Accept</button></a></div><div><a href= "/requests2/<%=doc.id %> "><button>Reject</button></a></div></div></li>
             <% }) %>
            
