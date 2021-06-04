@@ -1,4 +1,4 @@
-.navbar{
+/* .navbar{
       padding-top: 20px;
       padding-bottom: 20px;
       padding-left:70%;
@@ -14,11 +14,43 @@
    
   #button:hover{
     background-color: darkslategray;
-  }
+  } */
 /* .blogdiv{
   margin-left:50%;
 
 } */
-.row{
+/* .row{
   height: 500px;
-}
+} */
+
+
+    .row2{
+      min-height:200px;
+      padding:10px;
+      border: 2px solid #fff;
+      background-image: url('https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+    }
+    .row1{
+      border: 2px solid red;
+      height :40%;
+      margin: 20px;
+      padding: 20px;
+     
+      
+
+    }
+    .row3{
+      height:80%;
+      overflow-y: scroll;
+    }
+    .col2
+    { width:1374px;
+      float: left;
+     
+    }
+    .col3{
+      float:right;
+    }
+      
+  

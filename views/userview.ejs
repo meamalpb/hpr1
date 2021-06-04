@@ -7,76 +7,7 @@
     <title>login|UserView</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <style>
-         .main{
-             background-image: url("2848848.jpg");
-             height:730px; 
-             padding:20px;
-             }
-         .username{
-             background-color: rgb(247, 136, 136) ;
-             align-self: center;
-             
-             height:202px;
-             opacity: 0.4;
-             margin-left: 170px;
-             margin-right: 170px;
-             
-
-         }
-         .first{
-          float:left;
-           height:100%;
-           width:  251px;
-           margin:0%;
-           
-           background-image: url("iconfinder_user-alt_285645.png");
-           background-color: rgb(255, 46, 46);
-           background-size: cover;
-         }
-         .second{
-           float:left;
-           
-           height:100%
-         }
-         .heading{
-             background-color: rgb(252, 112, 112) ;
-             align-self: center;
-             text-align: center;
-             height:50px;
-             opacity: 0.7;
-             margin-left: 170px;
-             margin-right: 170px;
-             margin-bottom:10px;
-             
-
-         }
-         .blogdata{
-           
-          align-self: center;
-             
-             height: 400px;
-            
-             margin-left: 170px;
-             margin-right: 170px; 
-             overflow-y: scroll ;
-         }
-         .blog{
-           min-height:185px;
-           border-radius: 100px / 50px;
-
-
-         }
-         .blogname{
-           height:35px;
-           background-color:rgb(255, 70, 70);
-         }
-         .content{
-           padding-top: 5px;
-           min-height:150px;
-           background-color: darksalmon;
-         }
-     </style>
+     <link rel="stylesheet" href="userviewstyle.css" type="text/css">
 </head>
 <body >
     <nav>
@@ -111,8 +42,9 @@
         <li>
         <div class="blog">
         <div class="blogname">
-          <div style="float:left;"> <h6><%=blog.title%> </h6>  </div><div style="float:right;" class="col3"> <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a></div>
-
+          <div style="float:left;"> <h6><%=blog.title%> </h6>  </div><%if(data1.userType==0){%>
+          <div style="float:right;" class="col3"> <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a></div>
+            <%}%>
         </div>
         <div class="content">
           <span><%=blog.content%></span>

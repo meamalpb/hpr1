@@ -1,0 +1,17 @@
+
+    .row2{
+      min-height:200px;
+      padding:10px;
+      border: 2px solid #fff;
+      background-image: url('https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+    }
+    .row1{
+      border: 2px solid red;
+      min-height :30%;
+      margin: 20px;
+      padding: 20px;
+      
+
+    }
+  
