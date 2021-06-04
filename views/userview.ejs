@@ -62,16 +62,17 @@
              overflow-y: scroll ;
          }
          .blog{
-           min-height:170px;
+           min-height:185px;
            border-radius: 100px / 50px;
 
 
          }
          .blogname{
-           height:20px;
+           height:35px;
            background-color:rgb(255, 70, 70);
          }
          .content{
+           padding-top: 5px;
            min-height:150px;
            background-color: darksalmon;
          }
@@ -110,7 +111,7 @@
         <li>
         <div class="blog">
         <div class="blogname">
-         <h6><%=blog.title%> </h6> 
+          <div style="float:left;"> <h6><%=blog.title%> </h6>  </div><div style="float:right;" class="col3"> <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a></div>
 
         </div>
         <div class="content">

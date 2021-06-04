@@ -54,7 +54,7 @@ module.exports.get_register = (req,res) => {
 
 
 
-exports.addblogs=async (req,res)=>{
+module.exports.addblogs=async (req,res)=>{
   const currentuser = await firebase.auth().currentUser
   firebase.firestore().collection('users').doc(currentuser.email).get().then((doc)=>{
     if(doc.data().active==1){
