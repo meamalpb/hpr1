@@ -55,8 +55,15 @@ module.exports.get_register = (req,res) => {
 
 
 exports.addblogs=async (req,res)=>{
-  
-  res.render('blog-reg');
+  const currentuser = await firebase.auth().currentUser
+  firebase.firestore().collection('users').doc(currentuser.email).get().then((doc)=>{
+    if(doc.data().active==1){
+      res.render('blog-reg');
+    }
+    else{
+      res.send('No permission')
+    }
+  })
 }
 
 module.exports.postblogs = async(req,res)=>{
