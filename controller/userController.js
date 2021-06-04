@@ -70,7 +70,7 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
     });
 }
 
-module.exports.postblogs = async(req,res)=>{
+module.exports.postjob = async(req,res)=>{
   const currentuser = await firebase.auth().currentUser
   const val = await firebase.firestore().collection("users").doc(currentuser.email).get()
   if(currentuser!=null){
@@ -112,9 +112,9 @@ module.exports.addblogs=async (req,res)=>{
 
 
 
-module.exports.edit_blog = (req,res) => {
+module.exports.edit_job = (req,res) => {
   firebase.firestore().collection('blogs').doc(req.params.id).get().then((val)=>{
-      res.render('editBlog',{val});
+      res.render('editJob',{val});
   })
 }
 
@@ -122,7 +122,7 @@ exports.getwait = (req,res) => {
   res.render('wait');
 }
 
-module.exports.postedit_blog = async (req,res) => {
+module.exports.postedit_job = async (req,res) => {
   const val = await firebase.firestore().collection('blogs').doc(req.params.id).update({
     'title':req.body.title,
     'content':req.body.content

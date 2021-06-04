@@ -8,7 +8,7 @@ router.get('/login',userController.get_login);
 router.get('/register',userController.get_register);
 router.post('/register',userController.post_register);
 router.get('/userview',userController.displayUserView);
-router.post('/addblog',userController.postblogs);
+router.post('/addjob',userController.postjob);
 router.get('/wait',userController.getwait);
 
 
@@ -16,9 +16,9 @@ router.get('/wait',userController.getwait);
 
 
 
-router.get('/blogs/:id',userController.edit_blog);
+router.get('/jobs/:id',userController.edit_job);
 
-router.post('/blogs/:id',userController.postedit_blog);
+router.post('/jobss/:id',userController.postedit_job);
 
 
 router.post('/forgotpassword',userController.post_forgotpassword)
