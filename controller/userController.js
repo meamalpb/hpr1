@@ -72,8 +72,9 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
 
 module.exports.postblogs = async(req,res)=>{
   const currentuser = await firebase.auth().currentUser
+  const val = await firebase.firestore().collection("users").doc(currentuser.email).get()
   if(currentuser!=null){
-    if(currentuser.data().userType==0){
+    if(val.data().userType==0){
       await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()})
       .then((data)=>{
         res.redirect('/wait')
