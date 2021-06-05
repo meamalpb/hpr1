@@ -160,3 +160,18 @@ module.exports.deletecuser = async (req,res) => {
   res.send('success')
 
 }
+
+// module.exports.getotp=(req,res)=>{
+//   res.render('otp')
+// }
+// module.exports.otpgenerate=(req,res)=>{
+//  let recaptch= new firebase.auth.RecaptchaVerifier('recaptcha')
+//  let number='+918086176448'
+//  firebase.auth.signInWithPhoneNumber(number,recaptch).then(function(e){
+//    let code=prompt('enter otp ','')
+//  })
+  
+// }
+// module.exports.otpverify=(req,res)=>{
+  
+// }

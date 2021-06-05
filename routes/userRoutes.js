@@ -28,5 +28,8 @@ router.get('/forgotpassword',userController.get_forgotpassword)
 router.get('/delete',userController.deletecuser);
 router.get('/addblog',userController.addblogs);
 
+// router.get('/otp',userController.getotp)
+// router.post('/otpgenerate',userController.otpgenerate)
+// router.post('/otpverify',this.userController.otpverify)
 
 module.exports = router;
