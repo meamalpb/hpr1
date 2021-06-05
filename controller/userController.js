@@ -1,12 +1,12 @@
 const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
-    res.render('login');
+    res.render('userlogin');
     //console.log(firebase.auth().currentUser.uid)
 }
 
 module.exports.get_register = (req,res) => {
-    res.render('register')
+    res.render('userreg')
 }
 
 

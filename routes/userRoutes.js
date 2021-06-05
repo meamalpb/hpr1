@@ -4,9 +4,11 @@ const router = Router();
 const userController =  require('../controller/userController')
 
 router.post('/login',userController.post_login);
-router.get('/login',userController.get_login);
-router.get('/register',userController.get_register);
+router.get('/userlogin',userController.get_login);
+
+router.get('/userregister',userController.get_register);
 router.post('/register',userController.post_register);
+
 router.get('/userview',userController.displayUserView);
 router.post('/addjob',userController.postjob);
 router.get('/wait',userController.getwait);
@@ -31,5 +33,7 @@ router.get('/addblog',userController.addblogs);
 // router.get('/otp',userController.getotp)
 // router.post('/otpgenerate',userController.otpgenerate)
 // router.post('/otpverify',this.userController.otpverify)
+
+
 
 module.exports = router;

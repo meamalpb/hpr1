@@ -2,7 +2,7 @@ const firebase = require('firebase');
 
 
 module.exports.get_admin_login=(req,res)=>{
-    res.render('admin-login')
+    res.render('adminlogin')
    }
    
 module.exports.admin_blog_view=(req,res)=>{
