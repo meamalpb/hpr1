@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login|UserView</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="userviewstyle.css" type="text/css">
+</head>
+<body >
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">User Page</a>
+          
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            
+            <!-- <li><a href="#">Logout</a></li> -->
+             <li class="create">
+        <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
+      </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="main">
+   <div class="username ">
+     <div class="first"></div><div class="second">
+       <% const data1=val3.data();%>
+       <ul><li><h5>NAME :   </h5><h6><%=data1.username%></h6></li>
+        <li><h5>EMAIL ID :   </h5><h6><%=data1.email%></h6></li>
+        
+      </ul>
+     </div>
+    </div>
+    <div class="heading"> <h4>BLOGS</h4> </div>
+
+    <div class="blogdata">
+      <ul>
+        <% val2.forEach(doc=>{ %>
+         <% const blog=doc.data(); %>
+        <li>
+        <div class="blog">
+        <div class="blogname">
+          <div style="float:left;"> <h6><%=blog.title%> </h6>  </div><%if(data1.userType==0){%>
+          <div style="float:right;" class="col3"> <a href="/blogs/<%= doc.id %> "><i class="small material-icons">create</i></a></div>
+            <%}%>
+        </div>
+        <div class="content">
+          <span><%=blog.content%></span>
+        </div>
+
+      </div>
+      </li>
+      <%})%>
+    </ul>
+
+    </div>
+ 
+        
+         
+
+    </div>
+
+
+    <div id="modal-create" class="modal" >
+      <div class="modal-content">
+        <h4>Create Content</h4><br />
+        <form id="create-form" action='/addblog' method="POST">
+          <div class="input-field">
+            <input type="text" id="title" name="title" required>
+            <label for="title"> Title</label>
+          </div>
+          <div class="input-field">
+            <textarea id="content" name="content" class="materialize-textarea" required></textarea>
+            <label for="content">Content</label>
+          </div>
+          <button type="submit" class="btn red darken-2 z-depth-0">Enter</button>
+        </form>
+      </div>
+    </div>
+
+    <script>  document.addEventListener('DOMContentLoaded', function() {
+     
+    
+      var modals = document.querySelectorAll('.modal');
+      M.Modal.init(modals);
+    });
+    </script>
+    
+   
+       <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body >
+</html>
