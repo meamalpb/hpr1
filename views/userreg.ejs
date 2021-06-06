@@ -38,22 +38,28 @@
            <div class="container">
                <div class="form">
                    <h2>User SignUp Form</h2>
-                   <form>
+                   <form action='/register' method="POST">
                        <div class="inputBox">
-                          <input type="text" placeholder="email" id="email">
+                          <input type="text" placeholder="email" id="email" name="email">
                           <p class="textred" id="email-error"></p>
                         </input>
+                       </div>
 
-                       </div> 
                        <div class="inputBox">
-                        <input type="number" placeholder="phone" id="phone">
+                        <input type="text" placeholder="Username" id="username" name="username">
+                        
+                      </input>
+
+                     </div> 
+                       <div class="inputBox">
+                        <input type="number" placeholder="phone" id="phone" name="phone">
                         
                       </input>
 
                      </div> 
                      
                        <div class="inputBox">
-                        <input type="password" placeholder="Password" id="password">
+                        <input type="password" placeholder="Password" id="password" name="password">
                         <p class="textred" id="password-error"></p>
                      </div> 
                      <div class="inputBox">

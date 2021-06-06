@@ -24,7 +24,7 @@ module.exports.post_register = (req,res) => {
         })
       }
       else{
-          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:0,rtype:'new job',job_count:0});
+          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:0,rtype:'new job',job_count:0,phone:req.body.phone});
       }
     })
   })
