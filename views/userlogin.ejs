@@ -38,15 +38,15 @@
            <div class="container">
                <div class="form">
                    <h2>User Login Form</h2>
-                   <form>
+                   <form action="/login" method="POST">
                        <div class="inputBox">
-                          <input type="text" placeholder="email" id="email">
+                          <input type="text" placeholder="email" id="email" name="email">
                           <p class="textred" id="email-error"></p>
                         </input>
 
                        </div> 
                        <div class="inputBox">
-                        <input type="password" placeholder="Password" id="password">
+                        <input type="password" placeholder="Password" id="password" name="password">
                         <p class="textred" id="password-error"></p>
                      </div> 
                      <div class="inputBox">
