@@ -11,3 +11,10 @@ module.exports.get_internal_views = async (req,res) => {
     res.render('internal-views',{data,data2});
   
  }
+ 
+module.exports.get_internal_login= async (req,res) => {
+    res.render('internallogin')
+}
+module.exports.get_internal_register= async (req,res) => {
+    res.render('internalreg')
+}

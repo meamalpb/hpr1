@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width" initial-scale=1.0>
+   <title>Login</title>
+   <link rel="stylesheet" href="registerstyle.css" type="text/css">
+</head>
+<body> 
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <!-- <li><a href="/login">REGISTER</a></li> -->
+                <li><a href="/admin-login">ADMINISTRATOR</a></li>
+                <li><a href="/internallogin">INTERNAL CANDIDATE</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="overlay">
+        <a >&times;</a>
+        <div class="overlay__content">
+            <a href="/login">Login</a>
+            <a href="#">Register</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+            
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+           <div class="container">
+               <div class="form">
+                   <h2>User SignUp Form</h2>
+                   <form action='/register' method="POST">
+                       <div class="inputBox">
+                          <input type="text" placeholder="email" id="email" name="email">
+                          <p class="textred" id="email-error"></p>
+                        </input>
+                       </div>
+
+                       <div class="inputBox">
+                        <input type="text" placeholder="Username" id="username" name="username">
+                        
+                      </input>
+
+                     </div> 
+                       <div class="inputBox">
+                        <input type="number" placeholder="phone" id="phone" name="phone">
+                        
+                      </input>
+
+                     </div> 
+                     
+                       <div class="inputBox">
+                        <input type="password" placeholder="Password" id="password" name="password">
+                        <p class="textred" id="password-error"></p>
+                     </div> 
+                     <div class="inputBox">
+                        <input type="password" placeholder="Repeat Password" id="repeat password">
+                        <p class="textred" id="password-error"></p>
+                     </div>
+                     <div class="inputBox">
+                        <input type="submit" value="SignUp">
+                     </div>
+                     <p class="forget">Forget Password ? <a href="#">Click Here</a></p>
+                     <p class="forget">Already have an account ? <a href="/userlogin">Login</a></p>
+                   </form>
+               </div>
+           </div>
+        </div>
+    </section>
+    <script>
+        function validEmail(email) {
+  const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  return regex.test(email.toString().toLowerCase());
+}
+
+function validPasswordStrength(password) {
+  var strongRegex = new RegExp(
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  );
+  var mediumRegex = new RegExp(
+    "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
+  );
+
+  if (strongRegex.test(password)) {
+    return true;
+  } else if (mediumRegex.test(password)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validPasswordRepeat() {
+  return password.value == passwordRepeat.value;
+}
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const passwordRepeat = document.getElementById("password-repeat");
+var valid;
+var validRepeat;
+var validPassword;
+email.addEventListener("input", function (e) {
+  valid = validEmail(this.value);
+  check();
+});
+
+password.addEventListener("input", function (e) {
+  validPassword = validPasswordStrength(this.value);
+  validRepeat = validPasswordRepeat();
+
+  check();
+});
+
+passwordRepeat.addEventListener("input", function (e) {
+  validRepeat = validPasswordRepeat();
+
+  check();
+});
+
+function check() {
+  var emailErrorMessage = document.getElementById("email-error");
+
+  var passwordRepeatMessage = document.getElementById("password-repeat-error");
+
+  var passwordError = document.getElementById("password-error");
+
+  if (!valid) {
+    emailErrorMessage.innerText = "Please enter a valid email address.";
+  } else {
+    emailErrorMessage.innerText = "";
+  }
+
+  if (!validPassword) {
+    passwordError.innerText = "Please enter a strong password.";
+  } else {
+    passwordError.innerText = "";
+    if (!validRepeat) {
+      passwordRepeatMessage.innerText =
+        "The passwords you entered do not match.";
+    } else {
+      passwordRepeatMessage.innerText = "";
+    }
+  }
+}
+
+    </script>
+</body>
+</html>

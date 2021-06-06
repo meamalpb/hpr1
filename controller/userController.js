@@ -1,12 +1,12 @@
 const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
-    res.render('login');
+    res.render('userlogin');
     //console.log(firebase.auth().currentUser.uid)
 }
 
 module.exports.get_register = (req,res) => {
-    res.render('register')
+    res.render('userreg')
 }
 
 
@@ -24,7 +24,7 @@ module.exports.post_register = (req,res) => {
         })
       }
       else{
-          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:0,rtype:'new job',job_count:0});
+          firebase.firestore().collection('users').doc(userCredential.user.email).set({email:userCredential.user.email,userType:0,username:req.body.username,active:0,rtype:'new job',job_count:0,phone:req.body.phone});
       }
     })
   })
@@ -160,3 +160,18 @@ module.exports.deletecuser = async (req,res) => {
   res.send('success')
 
 }
+
+// module.exports.getotp=(req,res)=>{
+//   res.render('otp')
+// }
+// module.exports.otpgenerate=(req,res)=>{
+//  let recaptch= new firebase.auth.RecaptchaVerifier('recaptcha')
+//  let number='+918086176448'
+//  firebase.auth.signInWithPhoneNumber(number,recaptch).then(function(e){
+//    let code=prompt('enter otp ','')
+//  })
+  
+// }
+// module.exports.otpverify=(req,res)=>{
+  
+// }
