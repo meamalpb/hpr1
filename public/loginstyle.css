@@ -138,7 +138,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 82vh;
     /* background : linear-gradient(to bottom,#f1f4f9,#dff1ff) */
 }
 /* section .color{
