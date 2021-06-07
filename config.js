@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 var firebaseConfig = {
-    apiKey: "AIzaSyB-bxU-jIijwf2dVYAIDDOR4-Pg-38PNeM",
-    authDomain: "blog-a4e41.firebaseapp.com",
-    projectId: "blog-a4e41",
-    storageBucket: "blog-a4e41.appspot.com",
-    messagingSenderId: "684909501088",
-    appId: "1:684909501088:web:c3b7722759446ecfc507c5"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DMN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSENGER_SENDER,
+    appId: process.env.APP_ID
   };
 
   module.exports = firebaseConfig;
