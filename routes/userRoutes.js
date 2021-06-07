@@ -12,6 +12,7 @@ router.post('/register',userController.post_register);
 router.get('/userview',userController.displayUserView);
 router.post('/addjob',userController.postjob);
 router.get('/wait',userController.getwait);
+router.get('/signout',userController.signout);
 
 
 //upto this almost secured

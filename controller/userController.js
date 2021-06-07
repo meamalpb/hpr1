@@ -9,6 +9,11 @@ module.exports.get_register = (req,res) => {
     res.render('userreg')
 }
 
+module.exports.signout = (req,res) =>{
+  firebase.auth().signOut().then(()=>{
+    res.redirect('/userlogin');
+  })
+}
 
 //post register = creates a new user
 module.exports.post_register = (req,res) => {
