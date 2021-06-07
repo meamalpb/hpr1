@@ -11,7 +11,7 @@ module.exports.get_register = (req,res) => {
 
 module.exports.signout = (req,res) =>{
   firebase.auth().signOut().then(()=>{
-    res.redirect('/userlogin');
+    res.redirect('/login');
   })
 }
 
