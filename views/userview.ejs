@@ -198,17 +198,17 @@ background-size: cover;
     border: 1px solid rgba( 255, 255, 255, 0.18 );">
       <div class="modal-content">
         <h4 style="color: aliceblue;">Add New Project</h4><br />
-        <form id="create-form">
+        <form id="create-form" action="/addjob" method="POST">
           <div class="input-field">
-            <input type="text" id="title" required>
+            <input type="text" id="title" name="title" required>
             <label for="title"> Title</label>
           </div>
           <div class="input-field">
-            <textarea id="content" class="materialize-textarea" required></textarea>
+            <textarea id="content" class="materialize-textarea" name="content" required></textarea>
             <label for="content">Project Description</label>
           </div>
           <div class="input-field">
-            <input id="Url" type="url"  required>
+            <input id="Url" type="url"  name = "url" required>
             <label for="url">URL Of Project File</label>
           </div>
           <button class="btn red darken-2 z-depth-0">Enter</button>
@@ -233,7 +233,7 @@ background-size: cover;
     <form>
       <div class="input-field">
         <input type="text" id="enterotp" required>
-        <label for="enterotp">Enter OTP here</label>
+        <label for="enterotp" style="color: aliceblue;">Enter OTP here</label>
       </div>
     <div class="modal-footer" style="background: rgba( 52, 27, 76, 0.70 );
     
@@ -249,7 +249,7 @@ background-size: cover;
 
 
    <!-- Modal for request Structure -->
-
+  <div>
    <div id="modal2" class="modal bottom-sheet "  style="background: rgba( 255, 255, 255, 0.30 );
    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
    backdrop-filter: blur( 7.5px );

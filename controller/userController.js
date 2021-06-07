@@ -80,9 +80,9 @@ module.exports.postjob = async(req,res)=>{
   const val = await firebase.firestore().collection("users").doc(currentuser.email).get()
   if(currentuser!=null){
     if(val.data().userType==0){
-      await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()})
+      await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,url:req.body.url,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()})
       .then((data)=>{
-        res.redirect('/wait')
+        res.redirect('/userview');
      })
 
     }else{
