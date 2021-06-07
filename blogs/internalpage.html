@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <style> body {
+      background-color: #f184ff;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(203,768,380)'%3E%3Cstop offset='0' stop-color='%23f184ff'/%3E%3Cstop offset='1' stop-color='%2307e4ff'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='300' height='250' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.16'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    
+    .blur {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .tabhead{
+      margin-left: 100px;
+      margin-right: 100px;
+      background: rgba( 74, 144, 226, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    }
+    
+    .tab1 {
+      align-self: center;
+      height: 40em;
+      /* display: flex; */
+      margin-left: 100px;
+      margin-right: 100px;
+      background: rgba(138, 74, 193, 0.35);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.7);
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .tab2{
+
+align-self: center;
+      height: 40em;
+      /* display: flex; */
+      margin-left: 100px;
+      margin-right: 100px;
+      background: rgba( 74, 144, 226, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8.0px );
+-webkit-backdrop-filter: blur( 8.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+      h5{
+        text-align: center;
+      }
+      /* .userlist{
+        float:left;
+        height: 100%;
+        width: 50%;
+        background: rgba( 200, 17, 238, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 0.5px );
+-webkit-backdrop-filter: blur( 0.5px );
+border-radius: 25px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+        
+        
+      } */
+      
+      .joblist{
+        float:left;
+        height: 100%;
+        width: 100%;
+      
+        background: rgba( 18, 250, 199, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+border-radius: 25px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    
+      }
+  
+    
+    .edit {
+      float: right;
+      margin-right: 10px;
+    }
+    
+    nav {
+      background-color: rgba(66, 66, 145, 0.589);
+      margin-bottom: 10px;
+    }
+    .heading{
+      width:100%;
+      height:50px;
+      background: rgba( 155, 155, 155, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 9.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    .data{
+        overflow-y: scroll ;
+      height:36em;
+      width:100%;
+
+    }
+    ::-webkit-scrollbar{
+        width:15px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background:rgb(4, 77, 105) ;
+    }
+    .collapsible-header{
+      background: rgba( 0, 0, 0, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    .collapsible-body{
+      background: rgba( 0, 0, 0, 0.20 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    .information{
+      height:35px;
+      width: 100%;
+    }
+    .question{
+      height:100%;
+      width:35%;
+      float:left;
+    }
+    .answer{
+      height:100%;
+      width:65%;
+      float:left;
+    }
+
+  
+     </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Internal User Page</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="create">
+            <a href="#" class="modal-trigger" data-target="modal-create"
+              >Create</a>
+          </li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+   <div class="tabhead" > <ul id="tabs-swipe-demo" class="tabs" style=" color:azure; background: rgba( 74, 144, 226, 0.00 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );">
+
+      <li class="tab col s3"><a href="#test-swipe-1" style=" color:white;">USERS  |  JOBS</a></li>
+      <li class="tab col s3"><a class="active" href="#test-swipe-2" style=" color:white;">REQUESTS</a></li>
+      
+    </ul></div>
+
+   
+    <div class="tab1 hoverable" id="test-swipe-1">
+
+
+      <!-- <div class="userlist">
+       <div class="heading"> <h5  >USERS</h5></div>
+       <div class="data">
+        <ul class="collapsible" data-collapsible='onOpenStart'>
+         
+        
+            <li><div class="collapsible-header ">
+              
+             <div class="col1" style="color:white; float:left;" > Username1</div>   
+             <div class="col2" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn">remove</a>  </div>
+             
+              </div>
+              <div class="collapsible-body  ">
+                
+                <div class="information">
+                  <div class="question">
+                    Email ID :
+
+                </div>
+                <div class="answer ">
+                  midhun.chandran529@gmail.com
+                </div>
+              </div>
+
+
+              <div class="information">
+                <div class="question">
+                  Phone NO. :
+
+              </div>
+              <div class="answer ">
+               7035490529
+              </div>
+            </div>
+
+
+            <div class="information">
+              <div class="question">
+                User Type :
+
+            </div>
+            <div class="answer ">
+             Internal<div class="change type "style="float:right;"> <a href="#changeusertype" class="modal-trigger" > <i class="material-icons small">edit</i></a></div>
+            </div>
+          </div>
+
+
+              </div>
+              
+              </li>
+              </ul>
+
+
+       </div>
+      </div>
+ -->
+
+      <div class="joblist">
+        <div class="heading" > <h5 >JOBS</h5></div>
+        <div class="data">
+
+          <ul class="collapsible" data-collapsible='onOpenStart'>
+         
+        
+            <li><div class="collapsible-header ">
+              
+             <div class="col1" style="color:white;" > Job1     (username) </div><div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
+             
+              </div>
+              <div class="collapsible-body  ">
+                <div class="jobdescription" style="min-height: 100px;width:100%;">
+                <span> job discription</span>
+              </div>
+              <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;">PROJECT LINK</a></div>
+              
+              </div>
+              
+              </li>
+              </ul>
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+    <div class="tab2 hoverable" id="test-swipe-2">
+      <div class="heading" > <h5 >JOB EDIT REQUEST</h5></div>
+      <div class="data">
+
+        <ul class="collapsible" data-collapsible='onOpenStart'>
+         
+        
+          <li><div class="collapsible-header  "style="width:100%">
+            
+           <div class="col1" style="color:white;" > Username1</div> 
+           <div class="accept" style="float:right; position:absolute; right:100px "><a class="waves-effect waves-light btn ">accept</a>  </div>
+           <div class="reject" style="float:right; position:absolute; right:10px "><a class="waves-effect waves-light btn ">reject</a>  </div>
+           
+            </div>
+            <div class="collapsible-body  ">
+              <div class="jobname"><h6 style= "font-weight: bold;">jobname</h6></div>
+              <div class="jobexplain" style="min-height:70px; width:100%;"
+              ><span> details</span></div>
+            
+            </div>
+            
+            </li>
+            </ul>
+      </div>
+      
+
+    </div>
+
+
+
+
+
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Create Content</h4>
+        <br />
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="title" required />
+            <label for="title"> Title</label>
+          </div>
+          <div class="input-field">
+            <textarea
+              id="content"
+              class="materialize-textarea"
+              required
+            ></textarea>
+            <label for="content">Content</label>
+          </div>
+          <button class="btn red darken-2 z-depth-0">Enter</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- pop up  type selection -->
+
+    <div id="changeusertype" class="modal bottom-sheet " 
+     style="width:670px;margin-left: 100px;
+    background: rgba( 255, 255, 255, 0.30 );
+   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+   backdrop-filter: blur( 7.5px );
+   -webkit-backdrop-filter: blur( 7.5px );
+   border-radius: 10px;
+   border: 1px solid rgba( 255, 255, 255, 0.18 );">
+    <div class="modal-content" style ="text-align: center;">
+      <h4>SELECT USER TYPE</h4>
+      <div class="formcontainer" style="height:50px;width:100%;">
+      <form action="#">
+        <div style="float:left;">
+          <label>
+            <input name="usertypeselect" type="radio" />
+            <span style="color:rgb(31, 207, 119);">NORMAL USER</span>
+          </label>
+        </div>
+        <div  style="float:left;">
+          <label>
+            <input name="usertypeselect" type="radio" />
+            <span style="color:rgb(31, 207, 119);">INTERNAL USER</span>
+          </label>
+        </div>
+        <div style="float:left;">
+          <label>
+            <input name="usertypeselect" type="radio" />
+            <span style="color:rgb(31, 207, 119);">ADMINISTRATOR</span>
+          </label>
+        </div>
+       
+      </form>
+    </div>
+
+    </div>
+    <div class="modal-footer" style="background: rgba( 255, 255, 255, 0.00 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+     ">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat"  style ="color:white">ok</a>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>   
+
+<script>
+//    var instance = M.Tabs.init(el, options);
+
+// // Or with jQuery
+
+$(document).ready(function(){
+  $('.tabs').tabs();
+});
+</script>
+   
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modals = document.querySelectorAll(".modal");
+        M.Modal.init(modals);
+        var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems);
+
+      });
+    </script>
+
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".job"), {
+        max: 25,
+        speed: 100,
+      });
+
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
