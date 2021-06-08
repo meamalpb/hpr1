@@ -173,7 +173,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             <a href="#" class="modal-trigger" data-target="modal-create"
               >Create</a>
           </li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="/signout">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -198,13 +198,11 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
        <div class="heading"> <h5  >USERS</h5></div>
        <div class="data">
         <ul class="collapsible" data-collapsible='onOpenStart'>
-         
-        
+          <% data2.forEach((user) => { %>
+            <%const userdata =user.data(); %>
             <li><div class="collapsible-header ">
-              
-             <div class="col1" style="color:white; float:left;" > Username1</div>   
+             <div class="col1" style="color:white; float:left;" ><%=userdata.username%></div>   
              <div class="col2" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn">remove</a>  </div>
-             
               </div>
               <div class="collapsible-body  ">
                 <!-- <span> details</span> -->
@@ -214,7 +212,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
                 </div>
                 <div class="answer ">
-                  midhun.chandran529@gmail.com
+                  <%=userdata.email%>
                 </div>
               </div>
 
@@ -225,7 +223,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
               </div>
               <div class="answer ">
-               7035490529
+                <%=userdata.phone%>
               </div>
             </div>
 
@@ -236,7 +234,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
             </div>
             <div class="answer ">
-             Internal<div class="change type "style="float:right;"> <a href="#changeusertype" class="modal-trigger" > <i class="material-icons small">edit</i></a></div>
+              <%=['User','Internal user'][userdata.userType]%>
+             <div class="change type "style="float:right;"> <a href="#changeusertype" class="modal-trigger" > <i class="material-icons small">edit</i></a></div>
             </div>
           </div>
 
@@ -244,6 +243,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
               </div>
               
               </li>
+              <% }) %> 
               </ul>
 
 
@@ -256,21 +256,33 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         <div class="data">
 
           <ul class="collapsible" data-collapsible='onOpenStart'>
-         
+            <% data.forEach(doc => { %>
+
+              <%const blog =doc.data(); %>
         
             <li><div class="collapsible-header ">
               
-             <div class="col1" style="color:white;" > Job1     (username) </div><div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
+             <div class="col1" style="color:white;" ><%=blog.title%></div><div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
              
               </div>
               <div class="collapsible-body  ">
+                <div class="information">
+                  <div class="question">
+                    Username :
+                </div>
+                <div class="answer ">
+                  <%=blog.user%>
+                </div>
+              </div>
+
+
                 <div class="jobdescription" style="min-height: 100px;width:100%;">
-                <span> job discription</span>
+                <span><%=blog.content%></span>
               </div>
-              <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;">PROJECT LINK</a></div>
+              <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;"><%=blog.url%></a></div>
               
               </div>
-              
+              <% }) %> 
               </li>
               </ul>
 
