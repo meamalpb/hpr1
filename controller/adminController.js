@@ -5,10 +5,6 @@ module.exports.get_admin_login=(req,res)=>{
     res.render('adminlogin')
    }
    
-module.exports.admin_blog_view=(req,res)=>{
-     res.render('/blogs2')
-   }
-
 module.exports.post_admin_login=async (req,res)=>{
 
   firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).then((userCredential)=>{
