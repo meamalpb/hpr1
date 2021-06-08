@@ -36,7 +36,7 @@ module.exports.post_admin_login=async (req,res)=>{
    
 module.exports.get_blogs2 = async (req,res) => {
   const blogsData= await firebase.firestore().collection('blogs').get();
-  const userData= await firebase.firestore().collection('users').where('active', '==', 1).get();
+  const userData= await firebase.firestore().collection('users').get();
   const userData2= await firebase.firestore().collection('users').where('active', '==', 0).get();
   const data = blogsData.docs;
   const data2= userData.docs;
