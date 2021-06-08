@@ -41,8 +41,10 @@ module.exports.post_register = (req,res) => {
 module.exports.post_login = async (req,res) => {
 firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).then((userCredential)=>{
   firebase.firestore().collection('users').doc(userCredential.user.email).get().then((val)=>{
-
-    if(val.data().active==0){
+    if(val.data().userType==1){
+      res.redirect('/internalviews')
+    }
+    else if(val.data().active==0){
         res.redirect('/wait')
     }
     else if(val.data().active==1){
