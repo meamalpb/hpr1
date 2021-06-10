@@ -8,6 +8,7 @@ router.get('/blogs',adminController.get_blogs2);
 router.get('/requests',adminController.get_admin_user_request);
 router.get('/requests/:id',adminController.activateUser);
 router.get('/requests2/:id',adminController.rejectUser);
+router.post('/changeusertype',adminController.changeusertype);
 
 
 

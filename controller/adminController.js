@@ -64,3 +64,39 @@ module.exports.rejectUser=  (req,res)=>{
         
       }).then(()=>{res.redirect('/requests')})
     }
+
+module.exports.changeusertype=async(req,res)=>{
+  
+    await firebase.firestore().collection('users').doc(req.body.email).get().then(async(val3)=>{
+      if(val3.data().userType==0){
+        if(req.body.usertypeselect=='internal'){
+          firebase.firestore().collection('users').doc(req.body.email).update({
+            userType:1,
+            
+          }).then(()=>{
+            console.log('updated to internal user')
+          })
+        }else if(req.body.usertypeselect=='admin'){
+         console.log('admin updated')
+        }else{
+          console.log('already a user')
+        }
+      }else  if(val3.data().userType==1){
+        if(req.body.usertypeselect=='user'){
+          firebase.firestore().collection('users').doc(req.body.email).update({
+            userType:0,
+            
+          }).then(()=>{
+            console.log('updated to normal user')
+          })
+        }else if(req.body.usertypeselect=='admin'){
+         console.log('admin updated')
+        }else{
+          console.log('already a internal user')
+        }
+      }
+    }
+    ).then(()=>{res.redirect('/blogs')})
+}
+
+

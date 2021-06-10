@@ -109,27 +109,31 @@
              <div class="modal-content" style ="text-align: center;">
                <h4>SELECT USER TYPE</h4>
                <div class="formcontainer" style="height:50px;width:100%;">
-               <form action="#">
+               <form action="/changeusertype" method="POST">
                  <div style="float:left;">
                    <label>
-                     <input name="usertypeselect" type="radio" />
+                     <input name="usertypeselect" type="radio" value="user" />
                      <span style="color:rgb(31, 207, 119);">NORMAL USER</span>
                    </label>
                  </div>
                  <div  style="float:left;">
                    <label>
-                     <input name="usertypeselect" type="radio" />
+                     <input name="usertypeselect" type="radio" value="internal" />
                      <span style="color:rgb(31, 207, 119);">INTERNAL USER</span>
                    </label>
                  </div>
                  <div style="float:left;">
                    <label>
-                     <input name="usertypeselect" type="radio" />
+                     <input name="usertypeselect" type="radio" value="admin"/>
                      <span style="color:rgb(31, 207, 119);">ADMINISTRATOR</span>
                    </label>
                  </div>
+                 <input name="email" type="hidden" value=<%=userdata.email%>/>
                  <!-- submit  button -->
-                <div> <input type="submit" id="submitbutton"></div>
+                 <div class="inputBox"  style="float:left;">
+                  <input type="submit" value="submit">
+               </div>
+              
                </form>
              </div>
          
