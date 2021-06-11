@@ -80,15 +80,21 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
 module.exports.postjob = async(req,res)=>{
   const currentuser = await firebase.auth().currentUser
   const val = await firebase.firestore().collection("users").doc(currentuser.email).get()
+  const name1=req.body.name;
+  const projecttitle1=req.body.projecttitle;
   if(currentuser!=null){
     if(val.data().userType==0){
-      await firebase.firestore().collection('blogs').add({title:req.body.title,content:req.body.content,url:req.body.url,user:currentuser.email,datetime: firebase.firestore.FieldValue.serverTimestamp()})
+  
+
+      
+      await firebase.firestore().collection('blogs').add({name:req.body.name,guidename :req.body.guidename,guidedepartment:req.body.guidedepartment,degree:req.body.degree,branch:req.body.branch,projecttitle:req.body.projecttitle,projectcategory:req.body.projectcategory,projectdescription:req.body.projectdescription ,useremail:currentuser.email,
+        datetime: firebase.firestore.FieldValue.serverTimestamp()})
       .then((data)=>{
-        res.redirect('/userview');
+        res.render('fileenter',{name1,projecttitle1});
      })
 
     }else{
-      res.send('you are not allowed to add blogs')
+      res.send('you are not allowed to add jobs')
     }
    //const remove = await firebase.firestore().collection('users').doc(currentuser.email).update({'active':0})
     //const removeUser = await currentuser.delete()

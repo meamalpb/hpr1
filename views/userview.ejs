@@ -96,32 +96,39 @@
             <input type="text" id="guidedepartment" name="guidedepartment" required>
             <label for="guidedepartment">Guide Department</label>
           </div>
-          <div class="input-field col s12">
-            <select id="degree" name="degree">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="B.tech">B.tech</option>
-              <option value="M.tech">M.tech</option>
-               
-            </select>
-            <label for="degree" >Materialize Select</label>
-          </div>
+       <div>
+        <p style="color:white;">Degree</p>
+        <p>
+          <label>
+            <input id="degree" name="degree" value="B.Tech" type="radio" checked />
+            <span>B.TECH</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input id= "degree" name="degree" value="M.Tech" type="radio" />
+            <span>M.TECH</span>
+          </label>
+        </p>
+
+       </div>
 <div>
-  <p>Branch</p>
+  <p style="color:white;">Branch</p>
           <p>
             <label>
-              <input name="branch" value="ECE" type="radio" checked />
+              <input id="branch" name="branch" value="ECE" type="radio" checked />
               <span>ECE</span>
             </label>
           </p>
           <p>
             <label>
-              <input name="branch" value="EEE" type="radio" />
+              <input id="branch" name="branch" value="EEE" type="radio" />
               <span>EEE</span>
             </label>
           </p>
           <p>
             <label>
-              <input  name="branch"  value ="Other" type="radio"  />
+              <input id="branch" name="branch"  value ="Other" type="radio"  />
               <span>Other</span>
             </label>
           </p>
@@ -154,27 +161,32 @@
           </p>
           <p>
             <label>
-              <input id="projectcategory" name="projectcategory"  value="" type="checkbox" />
-              <span>VLSI</span>
+              <input id="projectcategory" name="projectcategory"  value="Instrumentation" type="checkbox" />
+              <span>Instrumentation</span>
             </label>
           </p>
           <p>
             <label>
-              <input id="projectcategory" name="projectcategory"  value="VLSI" type="checkbox" />
-              <span>VLSI</span>
+              <input id="projectcategory" name="projectcategory"  value="Other" type="checkbox" />
+              <span>other</span>
             </label>
           </p>
         </div>
 
           <div class="input-field">
-            <textarea id="content" class="materialize-textarea" name="content" required></textarea>
-            <label for="content">Project Description</label>
+            <textarea id="projectdescription" class="materialize-textarea" name="projectdescription" required></textarea>
+            <label for="projectdescription">Project Description</label>
           </div>
           <!-- <div class="input-field">
             <input id="Url" type="url"  name = "url" required>
             <label for="url">URL Of Project File</label>
           </div> -->
-          <button class="btn red darken-2 z-depth-0">Enter</button>
+         <!-- <div>
+          <a href="#fileentrymodel" class="btn-flat modal-trigger" style="background-color: white;color:tomato;">Enter File</a>
+        </div> -->
+        <hr>
+
+          <button class="btn red darken-2 z-depth-0" style="margin-top: 10px;">Enter</button>
         </form>
       </div>
     </div>
@@ -231,6 +243,27 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat"  style ="color:white">ok</a>
     </div>
   </div>
+
+
+  <!-- model for file entry -->
+  <!-- <div id="fileentrymodel" class="modal">
+    <div class="modal-content">
+      <div class="input-field">
+        <input type="text" id="name1" name="name1" required>
+        <label for="name1"> Name</label>
+      </div>
+      <div class="input-field">
+        <input type="text" id="projecttitle1" name="projecttitle1" required>
+        <label for="projecttitle1"> Project Title</label>
+      </div>
+      <progress value="0" max="100" id="uploader">0%</progress>
+      <input type="file" value="upload" id="fileButton"  multiple>
+     
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div> -->
     
 
    
