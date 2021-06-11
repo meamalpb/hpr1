@@ -9,6 +9,7 @@ router.get('/requests',adminController.get_admin_user_request);
 router.get('/requests/:id',adminController.activateUser);
 router.get('/requests2/:id',adminController.rejectUser);
 router.post('/changeusertype',adminController.changeusertype);
+router.get('/otp',adminController.checkotp);
 
 
 

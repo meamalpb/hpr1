@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+const mailer = require('nodemailer')
 
 
 module.exports.get_admin_login=(req,res)=>{
@@ -17,15 +18,6 @@ module.exports.post_admin_login=async (req,res)=>{
       }
     })
       })
-    //  const userCredential = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password);
-    //  const check = await firebase.firestore().collection('admin').doc(userCredential.uid);
-    //  console.log(userCredential.uid);
-    // //  if(check.exists){
-    // //    res.render('/blogs')
-    // //  }
-    // //  else{
-    // //    res.send('Credentials wrong');
-    // //  }
    }
 
   
@@ -108,4 +100,33 @@ generatePassword = ()=> {
       retVal += charset.charAt(Math.floor(Math.random() * n));
   }
   return retVal;
+}
+
+
+
+const transporter = mailer.createTransport({
+  service : "google",
+  auth:{
+    user:'321amalpb.com@gmail.com',
+    pass:'****'
+  }
+})
+
+const options = {
+  from:'user.com@gmail.com',
+  to:'user@gmail.com',
+  subject:'tried did it work?!',
+  text:'I have trust u bastard'
+}
+
+module.exports.checkotp=  (req,res)=>{
+  const pw = generatePassword()
+  transporter.sendMail(options,function(err,info){
+    if(err){
+      console.log(err)
+    }
+    else{
+      console.log('sent!'+ info.response)
+    }
+  })
 }
