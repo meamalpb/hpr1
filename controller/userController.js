@@ -1,3 +1,4 @@
+const { render } = require('ejs');
 const firebase = require('firebase');
 
 module.exports.get_login = (req,res) => {
@@ -64,7 +65,7 @@ firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).th
     // const val3= await firebase.firestore().collection('users').doc(val1).get();
     await firebase.firestore().collection('users').doc(val1).get().then(async(val3)=>{
       if(val3.data().userType==0){
-          await firebase.firestore().collection('blogs').where('user','==',val1).get().then(async(val2)=>{
+          await firebase.firestore().collection('blogs').where('useremail','==',val1).get().then(async(val2)=>{
             res.render('userview',{val2,val3})
           })
       }else if(val3.data().userType==1){
@@ -188,3 +189,7 @@ module.exports.deletecuser = async (req,res) => {
 // module.exports.otpverify=(req,res)=>{
   
 // }
+module.exports.formdata=async (req,res)=>{
+ userdata= await firebase.firestore().collection('users').doc(req.params.id);
+ res.render('form',{userdata});
+}

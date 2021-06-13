@@ -13,6 +13,8 @@ router.get('/userview',userController.displayUserView);
 router.post('/addjob',userController.postjob);
 router.get('/wait',userController.getwait);
 router.get('/signout',userController.signout);
+router.get('/form',userController.formdata);
+
 
 
 //upto this almost secured

@@ -18,7 +18,7 @@
             
             <!-- <li><a href="#">Logout</a></li> -->
              <li class="create">
-        <a href="#" class=" modal-trigger" data-target="modal-create">Create</a>
+        <a href="/form" >Create</a>
       </li>
       <li class="logout"><a href="/signout"class="logout waves-button-input">Logout</a></li>
           </ul>
@@ -49,7 +49,7 @@
           <div class="job"  data-tilt data-tilt-axis="y">
           <div class="jobname">
               <div class="jobname1">
-           <h6 ><%=blog.title%></h6> 
+           <h6 ><%=blog.projecttitle%></h6> 
               </div>
               <div  class="edit" > <a class="btn-floating btn-large cyan pulse modal-trigger" href="#modal2"><i class="material-icons">edit</i></a></div>
 
@@ -58,7 +58,7 @@
   
           </div>
           <div class="jobdetails"><div>
-            <span style="font-weight: bold;"><%=blog.content%></span></div>
+            <span style="font-weight: bold;"><%=blog.projectdescription%></span></div>
               <div style="text-align: center; bottom:0px;">
                 <a href="#"><h6 style="color:cornsilk;">project link</h6></a>
              
@@ -74,7 +74,7 @@
      
 
 <!-- model for new job -->
-     
+<!--      
     <div id="modal-create" class="modal" style="background: rgba( 52, 27, 76, 0.70 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 8.5px );
@@ -177,19 +177,13 @@
             <textarea id="projectdescription" class="materialize-textarea" name="projectdescription" required></textarea>
             <label for="projectdescription">Project Description</label>
           </div>
-          <!-- <div class="input-field">
-            <input id="Url" type="url"  name = "url" required>
-            <label for="url">URL Of Project File</label>
-          </div> -->
-         <!-- <div>
-          <a href="#fileentrymodel" class="btn-flat modal-trigger" style="background-color: white;color:tomato;">Enter File</a>
-        </div> -->
+          
         <hr>
 
           <button class="btn red darken-2 z-depth-0" style="margin-top: 10px;">Enter</button>
         </form>
       </div>
-    </div>
+    </div> -->
 
 
 
@@ -245,25 +239,7 @@
   </div>
 
 
-  <!-- model for file entry -->
-  <!-- <div id="fileentrymodel" class="modal">
-    <div class="modal-content">
-      <div class="input-field">
-        <input type="text" id="name1" name="name1" required>
-        <label for="name1"> Name</label>
-      </div>
-      <div class="input-field">
-        <input type="text" id="projecttitle1" name="projecttitle1" required>
-        <label for="projecttitle1"> Project Title</label>
-      </div>
-      <progress value="0" max="100" id="uploader">0%</progress>
-      <input type="file" value="upload" id="fileButton"  multiple>
-     
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div> -->
+ 
     
 
    
