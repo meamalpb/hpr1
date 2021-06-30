@@ -37,8 +37,9 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );">
 
-      <li class="tab col s3"><a href="#test-swipe-1" style=" color:white;">USERS  |  JOBS</a></li>
-      <li class="tab col s3"><a class="active" href="#test-swipe-2" style=" color:white;">REQUESTS</a></li>
+      <li class="tab col s3"><a class="active" href="#test-swipe-1" style=" color:white;">USERS  |  JOBS</a></li>
+      <li class="tab col s3"><a  href="#test-swipe-2" style=" color:white;">Jobs</a></li>
+      <li class="tab col s3"><a  href="#test-swipe-3" style=" color:white;">REQUESTS</a></li>
       
     </ul></div>
 
@@ -168,7 +169,18 @@
         
             <li><div class="collapsible-header ">
               
-             <div class="col1" style="color:white;" ><%=blog.title%></div><div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
+             <div class="col1" style="color:white;" ><%=blog.projecttitle%></div>
+
+
+             <div class="jobtype"> <% var type=""; %> 
+              <% type=(blog.jobcomplete==0)?"[Running]":"[Complete]"; %> 
+              <%= type %> 
+
+             </div>
+
+
+
+             <div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
              
               </div>
               <div class="collapsible-body  ">
@@ -177,13 +189,13 @@
                     Username :
                 </div>
                 <div class="answer ">
-                  <%=blog.user%>
+                  <%=blog.name%>
                 </div>
               </div>
 
 
                 <div class="jobdescription" style="min-height: 100px;width:100%;">
-                <span><%=blog.content%></span>
+                <span><%=blog.projectdescription%></span>
               </div>
               <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;"><%=blog.url%></a></div>
               
@@ -202,7 +214,120 @@
 
 
 
+    <!-- tab2 -->
+
     <div class="tab2" id="test-swipe-2">
+      
+      <div class="runningjobs">
+        <div class="heading" > <h5 >Running Jobs</h5></div>
+      <div class="data">
+
+        <ul class="collapsible" data-collapsible='onOpenStart'>
+          <% data.forEach(doc => { %>
+
+            <%const blog =doc.data(); %>
+            <% if(blog.jobcomplete==0){ %> 
+            
+          <li><div class="collapsible-header ">
+            
+           <div class="col1" style="color:white;" ><%=blog.projecttitle%></div>
+
+
+           <div class="jobtype"> <% var type=""; %> 
+            <% type=(blog.jobcomplete==0)?"[Running]":"[Complete]"; %> 
+            <%= type %> 
+
+           </div>
+
+
+
+           <div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
+           
+            </div>
+            <div class="collapsible-body  ">
+              <div class="information">
+                <div class="question">
+                  Username :
+              </div>
+              <div class="answer ">
+                <%=blog.name%>
+              </div>
+            </div>
+
+
+              <div class="jobdescription" style="min-height: 100px;width:100%;">
+              <span><%=blog.projectdescription%></span>
+            </div>
+            <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;"><%=blog.url%></a></div>
+            
+            </div>
+
+        
+            </li>
+            <% } %> 
+            <% }) %> 
+
+ 
+
+            </ul>
+
+      </div></div>
+
+      <div class="completedjobs"> <div class="heading" > <h5 >Completed Jobs</h5></div>
+      <div class="data">
+
+
+        <ul class="collapsible" data-collapsible='onOpenStart'>
+          <% data.forEach(doc => { %>
+
+            <%const blog =doc.data(); %>
+            <% if(blog.jobcomplete==1){ %> 
+      
+          <li><div class="collapsible-header ">
+            
+           <div class="col1" style="color:white;" ><%=blog.projecttitle%></div>
+
+
+           <div class="jobtype"> <% var type=""; %> 
+            <% type=(blog.jobcomplete==0)?"[Running]":"[Complete]"; %> 
+            <%= type %> 
+
+           </div>
+
+
+
+           <div class="confirm" style="float:right; position:absolute; right:5px;"><a class="waves-effect waves-light btn ">confirm</a>  </div>
+           
+            </div>
+            <div class="collapsible-body  ">
+              <div class="information">
+                <div class="question">
+                  Username :
+              </div>
+              <div class="answer ">
+                <%=blog.name%>
+              </div>
+            </div>
+
+
+              <div class="jobdescription" style="min-height: 100px;width:100%;">
+              <span><%=blog.projectdescription%></span>
+            </div>
+            <div class="projectlink" style="text-align: center;color:white;"> <a href="#"  style="color:white;"><%=blog.url%></a></div>
+            
+            </div>
+           
+            </li>
+            <% } %> 
+            <% }) %> 
+            </ul>
+
+      </div></div>
+    </div>
+
+
+
+    <div class="tab3" id="test-swipe-3">
       <div class="heading" > <h5 >JOB EDIT REQUEST</h5></div>
       <div class="data">
 

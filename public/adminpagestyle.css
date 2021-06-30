@@ -36,7 +36,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
-  .tab2{
+  .tab3{
 
 align-self: center;
     height: 40em;
@@ -146,4 +146,48 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
   .submitbutton{
       background-color: greenyellow;
+  }
+  .jobtype{
+    margin-left: 70px;
+    color:lavender;
+  }
+  .tab2{
+    align-self: center;
+    height: 40em;
+    /* display: flex; */
+    margin-left: 100px;
+    margin-right: 100px;
+    background: rgba( 74, 144, 226, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8.0px );
+-webkit-backdrop-filter: blur( 8.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  }
+  .runningjobs{
+    float:left;
+      height: 100%;
+      width: 50%;
+      background: rgba( 200, 17, 238, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 0.5px );
+-webkit-backdrop-filter: blur( 0.5px );
+border-radius: 25px;
+border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+
+  }
+  .completedjobs{
+    float:left;
+      height: 100%;
+      width: 50%;
+    
+      background: rgba( 18, 250, 199, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+border-radius: 25px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+
   }
